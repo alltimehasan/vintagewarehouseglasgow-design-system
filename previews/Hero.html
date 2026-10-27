@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8">
+<link rel="stylesheet" href="../dist/tokens.css">
+<link rel="stylesheet" href="../dist/vwg.css">
+<script src="../dist/vwg.js"></script>
+<script>(function(){var d=document.documentElement;function set(t){if(t==='light'||t==='dark')d.setAttribute('data-theme',t);else d.removeAttribute('data-theme')}var q=new URLSearchParams(location.search).get('theme');if(q)set(q);addEventListener('message',function(e){var m=e.data;if(m&&m.type==='vwg-theme')set(m.theme)});function size(){if(parent!==window)parent.postMessage({type:'vwg-size',height:d.scrollHeight},'*')}addEventListener('load',function(){if(parent!==window)parent.postMessage({type:'vwg-ready'},'*');size();if(window.ResizeObserver)new ResizeObserver(size).observe(document.body)})})();</script><title>Hero — preview</title></head>
+<body>
+<section class="vwg-hero">
+  <img class="vwg-hero-media" src="../dist/images/warehouse-exterior.jpg" alt="">
+  <div class="vwg-hero-overlay" aria-hidden="true"></div>
+  <div class="vwg-container vwg-hero-inner">
+    <span class="vwg-script" aria-hidden="true">outlets, new &amp; secondhand</span>
+    <h1>Vintage Warehouse Glasgow</h1>
+    <p>Vintage and new clothing sold by the bag. Order online for UK delivery, or come in and pick and choose.</p>
+    <div class="vwg-hero-actions">
+      <a class="vwg-btn vwg-btn-inverse" href="#">Shop online</a>
+      <a class="vwg-btn vwg-btn-ghost" href="#">Find us</a>
+    </div>
+  </div>
+</section>
+</body>
+</html>

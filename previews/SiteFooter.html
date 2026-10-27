@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8">
+<link rel="stylesheet" href="../dist/tokens.css">
+<link rel="stylesheet" href="../dist/vwg.css">
+<script src="../dist/vwg.js"></script>
+<script>(function(){var d=document.documentElement;function set(t){if(t==='light'||t==='dark')d.setAttribute('data-theme',t);else d.removeAttribute('data-theme')}var q=new URLSearchParams(location.search).get('theme');if(q)set(q);addEventListener('message',function(e){var m=e.data;if(m&&m.type==='vwg-theme')set(m.theme)});function size(){if(parent!==window)parent.postMessage({type:'vwg-size',height:d.scrollHeight},'*')}addEventListener('load',function(){if(parent!==window)parent.postMessage({type:'vwg-ready'},'*');size();if(window.ResizeObserver)new ResizeObserver(size).observe(document.body)})})();</script><title>SiteFooter — preview</title></head>
+<body>
+<footer class="vwg-footer">
+  <div class="vwg-container vwg-footer-inner">
+    <div class="vwg-footer-brand">
+      <img src="../dist/images/logo-white.png" alt="Vintage Warehouse Glasgow" width="88" height="88">
+      <p>New and secondhand clothing, sold by the bag.</p>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#">Vintage bags</a></li>
+        <li><a href="#">New stock</a></li>
+        <li><a href="#">Delivery</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Visit</h4>
+      <ul>
+        <li>Mon–Fri 10am–5pm</li>
+        <li>Sat 10am–3pm</li>
+        <li>Sun closed</li>
+        <li><a href="#">Find us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Follow</h4>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">TikTok</a></li>
+        <li><a href="#">Contact us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="vwg-container vwg-footer-bottom">
+    <span>© 2026 Vintage Warehouse Glasgow</span>
+    <span>UK delivery only · <a href="#">Privacy</a> · <a href="#">Terms</a></span>
+  </div>
+</footer>
+</body>
+</html>

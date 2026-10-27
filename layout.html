@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Layout · Vintage Warehouse Glasgow</title>
+<meta name="description" content="A 4px spacing scale, square corners by default, and borders instead of shadows.">
+<link rel="icon" href="dist/images/icon-32.png" sizes="32x32">
+<link rel="icon" href="dist/images/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="dist/images/icon-180.png">
+<link rel="stylesheet" href="dist/tokens.css">
+<link rel="stylesheet" href="site.css">
+<script>try{var t=localStorage.getItem('vwg-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+</head>
+<body>
+<a class="sg-skip" href="#main">Skip to content</a>
+<header class="sg-top">
+  <a class="sg-brand" href="index.html">
+    <img class="sg-logo-light" src="dist/images/logo-black.png" alt="" width="44" height="44">
+    <img class="sg-logo-dark" src="dist/images/logo-white.png" alt="" width="44" height="44">
+    <span>Vintage Warehouse Glasgow<small>Design system</small></span>
+  </a>
+  <div class="sg-theme" role="group" aria-label="Theme">
+    <button type="button" data-theme-choice="light" aria-pressed="false">Light</button>
+    <button type="button" data-theme-choice="system" aria-pressed="false">Auto</button>
+    <button type="button" data-theme-choice="dark" aria-pressed="false">Dark</button>
+  </div>
+</header>
+<div class="sg-shell">
+<nav class="sg-nav" aria-label="Pages">
+<a href="index.html">Overview</a>
+<a href="colour.html">Colour</a>
+<a href="type.html">Type</a>
+<a href="layout.html" aria-current="page">Layout</a>
+<a href="components.html">Components</a>
+<a href="assets.html">Assets</a>
+</nav>
+<main id="main" class="sg-main">
+<div class="sg-head">
+  <span class="sg-eyebrow">Foundations</span>
+  <h1>Layout</h1>
+  <p>A 4px spacing scale, square corners by default, and borders instead of shadows.</p>
+</div>
+
+<section class="sg-group" id="spacing"><h2>Spacing</h2><p class="sg-note">4px base. Nine steps; nothing in between.</p><div class="sg-scale"><div class="sg-scale-row"><code>space-1</code><div><div class="sg-bar" style="width:4px"></div><div class="sg-scale-meta"><strong>4px</strong> Icon-to-label gap; between a script lead-in and its heading.</div></div></div>
+<div class="sg-scale-row"><code>space-2</code><div><div class="sg-bar" style="width:8px"></div><div class="sg-scale-meta"><strong>8px</strong> Inside badges; between a label and its input; between card lines.</div></div></div>
+<div class="sg-scale-row"><code>space-3</code><div><div class="sg-bar" style="width:12px"></div><div class="sg-scale-meta"><strong>12px</strong> Between buttons in a row; the badge inset on a product photo.</div></div></div>
+<div class="sg-scale-row"><code>space-4</code><div><div class="sg-bar" style="width:16px"></div><div class="sg-scale-meta"><strong>16px</strong> Card padding; the side gutter on phones.</div></div></div>
+<div class="sg-scale-row"><code>space-6</code><div><div class="sg-bar" style="width:24px"></div><div class="sg-scale-meta"><strong>24px</strong> The desktop side gutter; gaps between product cards; button side padding.</div></div></div>
+<div class="sg-scale-row"><code>space-8</code><div><div class="sg-bar" style="width:32px"></div><div class="sg-scale-meta"><strong>32px</strong> Between blocks inside a section; footer column gap.</div></div></div>
+<div class="sg-scale-row"><code>space-12</code><div><div class="sg-bar" style="width:48px"></div><div class="sg-scale-meta"><strong>48px</strong> Section padding on phones; the footer's top padding.</div></div></div>
+<div class="sg-scale-row"><code>space-16</code><div><div class="sg-bar" style="width:64px"></div><div class="sg-scale-meta"><strong>64px</strong> Section padding on desktop.</div></div></div>
+<div class="sg-scale-row"><code>space-24</code><div><div class="sg-bar" style="width:96px"></div><div class="sg-scale-meta"><strong>96px</strong> The hero's top padding; the window pitch on the cover.</div></div></div></div></section>
+<section class="sg-group" id="radius"><h2>Radius</h2><p class="sg-note">Square by default, like the warehouse. Round only what is a disc or a pill.</p><div class="sg-radii"><div class="sg-radius-item"><div class="sg-radius" style="border-radius:0"></div><code>radius-none</code><div class="sg-scale-meta"><strong>0</strong> Cards, images, sections, tables, the invoice: everything that is not a control.</div></div>
+<div class="sg-radius-item"><div class="sg-radius" style="border-radius:2px"></div><code>radius-sm</code><div class="sg-scale-meta"><strong>2px</strong> Buttons and inputs.</div></div>
+<div class="sg-radius-item"><div class="sg-radius" style="border-radius:9999px"></div><code>radius-full</code><div class="sg-scale-meta"><strong>9999px</strong> Badges, the basket count, the logo disc.</div></div></div></section>
+<section class="sg-group" id="shadow"><h2>Shadow and focus</h2><p class="sg-note">Borders, not shadows. One exception for things that float.</p><div class="sg-shadows"><div class="sg-shadow-item"><div class="sg-shadow" style="box-shadow:var(--focus-ring)"></div><code>focus-ring</code><div class="sg-scale-meta">Keyboard focus on every control: a 2px gap in the page colour, then 2px of solid brick (box-shadow, so it follows the radius). 3:1 or better on every surface in both themes.</div></div>
+<div class="sg-shadow-item"><div class="sg-shadow" style="box-shadow:var(--shadow-drawer)"></div><code>shadow-drawer</code><div class="sg-scale-meta">The basket drawer and the phone menu only.</div></div></div></section>
+</main>
+</div>
+<footer class="sg-foot">Vintage Warehouse Glasgow design system · built 2026-10-27 from <code>project/</code> · <a href="https://github.com/alltimehasan/vintagewarehouseglasgow-design-system">source</a></footer>
+<script src="site.js"></script>
+</body>
+</html>

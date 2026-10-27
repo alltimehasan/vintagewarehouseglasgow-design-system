@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8">
+<link rel="stylesheet" href="../dist/tokens.css">
+<link rel="stylesheet" href="../dist/vwg.css">
+<script src="../dist/vwg.js"></script>
+<script>(function(){var d=document.documentElement;function set(t){if(t==='light'||t==='dark')d.setAttribute('data-theme',t);else d.removeAttribute('data-theme')}var q=new URLSearchParams(location.search).get('theme');if(q)set(q);addEventListener('message',function(e){var m=e.data;if(m&&m.type==='vwg-theme')set(m.theme)});function size(){if(parent!==window)parent.postMessage({type:'vwg-size',height:d.scrollHeight},'*')}addEventListener('load',function(){if(parent!==window)parent.postMessage({type:'vwg-ready'},'*');size();if(window.ResizeObserver)new ResizeObserver(size).observe(document.body)})})();</script><title>Invoice — preview</title></head>
+<body>
+<div style="padding: var(--space-6)">
+<article class="vwg-invoice" aria-label="Online order invoice 0001">
+  <div class="vwg-invoice-head">
+    <div>
+      <img src="../dist/images/logo-black.png" alt="Vintage Warehouse Glasgow" width="72" height="72">
+    </div>
+    <div class="vwg-invoice-title">
+      <h1>Online order invoice</h1>
+      <p>No. 0001 · 27 October 2026</p>
+      <span class="vwg-badge vwg-badge-stock">Paid</span>
+    </div>
+  </div>
+  <div class="vwg-invoice-parties">
+    <div>
+      <h4>From</h4>
+      <p><strong>Vintage Warehouse Glasgow</strong><br>R and BM Logistics Limited<br>Company address to be confirmed<br>Glasgow, Scotland</p>
+    </div>
+    <div>
+      <h4>To</h4>
+      <p><strong>Customer name</strong><br>Delivery address line<br>Town<br>Postcode, United Kingdom</p>
+    </div>
+  </div>
+  <table>
+    <thead>
+      <tr><th>Item</th><th class="vwg-num">Qty</th><th class="vwg-num">Price</th><th class="vwg-num">Total</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Mixed vintage bag<br><span style="color: var(--ink-muted)">Approx. 20 kg · mixed sizes</span></td><td class="vwg-num">1</td><td class="vwg-num">£60.00</td><td class="vwg-num">£60.00</td></tr>
+      <tr><td>Branded outlet bag<br><span style="color: var(--ink-muted)">Approx. 15 kg · with tags</span></td><td class="vwg-num">1</td><td class="vwg-num">£95.00</td><td class="vwg-num">£95.00</td></tr>
+      <tr><td>UK delivery</td><td class="vwg-num">1</td><td class="vwg-num">£12.00</td><td class="vwg-num">£12.00</td></tr>
+    </tbody>
+  </table>
+  <div class="vwg-invoice-totals">
+    <div><span>Subtotal</span><span>£155.00</span></div>
+    <div><span>Delivery</span><span>£12.00</span></div>
+    <div class="vwg-grand"><span>Total paid</span><span>£167.00</span></div>
+  </div>
+  <p class="vwg-invoice-foot">Paid by card on 27 October 2026. Thank you for your order. Vintage Warehouse Glasgow · UK delivery only.</p>
+</article>
+</div>
+</body>
+</html>

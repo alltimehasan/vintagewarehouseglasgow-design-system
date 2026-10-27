@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Brand book · Vintage Warehouse Glasgow</title>
+<meta name="description" content="How the brand looks and reads, and the rules for building the website from it.">
+<link rel="icon" href="dist/images/icon-32.png" sizes="32x32">
+<link rel="icon" href="dist/images/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="dist/images/icon-180.png">
+<link rel="stylesheet" href="dist/tokens.css">
+<link rel="stylesheet" href="site.css">
+<script>try{var t=localStorage.getItem('vwg-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+</head>
+<body>
+<a class="sg-skip" href="#main">Skip to content</a>
+<header class="sg-top">
+  <a class="sg-brand" href="index.html">
+    <img class="sg-logo-light" src="dist/images/logo-black.png" alt="" width="44" height="44">
+    <img class="sg-logo-dark" src="dist/images/logo-white.png" alt="" width="44" height="44">
+    <span>Vintage Warehouse Glasgow<small>Design system</small></span>
+  </a>
+  <div class="sg-theme" role="group" aria-label="Theme">
+    <button type="button" data-theme-choice="light" aria-pressed="false">Light</button>
+    <button type="button" data-theme-choice="system" aria-pressed="false">Auto</button>
+    <button type="button" data-theme-choice="dark" aria-pressed="false">Dark</button>
+  </div>
+</header>
+<div class="sg-shell">
+<nav class="sg-nav" aria-label="Pages">
+<a href="index.html" aria-current="page">Overview</a>
+<a href="colour.html">Colour</a>
+<a href="type.html">Type</a>
+<a href="layout.html">Layout</a>
+<a href="components.html">Components</a>
+<a href="assets.html">Assets</a>
+</nav>
+<main id="main" class="sg-main">
+<div class="sg-head">
+  <span class="sg-eyebrow">Overview</span>
+  <h1>Brand book</h1>
+  <p>How the brand looks and reads, and the rules for building the website from it.</p>
+</div>
+<div class="sg-preview" data-width="960" data-height="320"><iframe src="previews/Cover.html" title="Cover" width="960" height="320" ></iframe></div>
+<article class="sg-prose"><p>Vintage Warehouse Glasgow sells new outlet stock and secondhand clothing by the bag, from a red-brick warehouse in Glasgow: in person from the pick-and-choose area, and online with UK delivery only. The look comes from the building and the sign. A black disc on a white panel, brick all round, blue container doors, and the hanger script. Keep it that plain: black, white, one brick accent, bold uppercase headings, a script word or two.</p>
+<h2 id="words">Words</h2>
+<ul><li>Write the name as Vintage Warehouse Glasgow in running text; <code>hero</code>, <code>h1</code>, <code>h2</code> and <code>eyebrow</code> set it uppercase, as the ring on the logo does. Never shorten it for customers. The legal entity, R and BM Logistics Limited, appears on invoices only.</li><li>Plain, warm, short. Sentence case for everything that is not a display style. No exclamation marks. No emoji on the site.</li><li>The product is a <strong>bag</strong>: &quot;Mixed vintage bag&quot;, &quot;Branded outlet bag&quot;. Give the weight and an approximate piece count on every product: &quot;Approx. 20 kg · 60–80 pieces&quot;.</li><li>Put &quot;UK delivery only&quot; beside every price and in the footer. The shop does not ship anywhere else.</li><li>Label every product Vintage or New with a <code>Badge</code>. The two kinds of stock are the point of the shop.</li><li>Write hours as &quot;Mon–Fri 10am–5pm · Sat 10am–3pm · Sun closed&quot;, with an en dash.</li><li>Buttons are verbs: &quot;Shop online&quot;, &quot;Add to basket&quot;, &quot;Get directions&quot;, &quot;Send message&quot;. The one action a page is for gets the primary button; everything else is outline or a link.</li><li>Invoices are titled &quot;Online order invoice&quot; and numbered with four digits in sequence (0001, 0002 …), never reused.</li></ul>
+<h2 id="colour">Colour</h2>
+<ul><li><code>surface</code> is the page. <code>surface-raised</code> is cards, product tiles, inputs, the site header and the invoice sheet, always with a <code>line</code> border and never a shadow.</li><li><code>ink</code> for text on either surface; <code>ink-muted</code> for meta and helper text. The primary button is an <code>ink</code> fill with <code>surface</code> text.</li><li><code>band</code> is the black of the logo disc: the footer, and the ground under hero photos. On it, text is <code>on-band</code> or <code>on-band-muted</code>, dividers are <code>line-on-band</code>, and the logo is <code>logo-white.png</code>.</li><li><code>brick</code> is the one accent, taken from the warehouse wall: links, script lead-ins, the Vintage badge text on <code>brick-soft</code>, the brick button with <code>on-brick</code> text, and the underline on the current nav link. Do not set brick text on <code>band</code> in the light theme (3.2:1); there it is a fill only.</li><li><code>blue</code> is the container blue from inside the warehouse. It marks New stock (text on <code>blue-soft</code>) and the map pin. Nothing else.</li><li><code>stock</code> means in stock, paid, sent. <code>danger</code> means sold out, an error, a failed payment. Each always sits beside a word; the colour never carries the meaning alone.</li><li>A hero photo takes the flat <code>overlay</code> so <code>on-band</code> text reads on it. No gradients anywhere.</li><li>Every control shows <code>focus-ring</code> on keyboard focus: a 2px gap in the page colour, then 2px of solid brick.</li><li>The dark theme follows the same rules with the swapped values: brick lightens and takes dark <code>on-brick</code> text, and the header shows <code>logo-white.png</code> instead of <code>logo-black.png</code>.</li></ul>
+<h2 id="type">Type</h2>
+<p>Three faces, each with one job.</p>
+<ul><li><strong>Display: Montserrat</strong> 700 and 800, uppercase and tracked, the face nearest the ring on the logo. <code>hero</code> and <code>h1</code> for page titles, <code>h2</code> for sections, <code>eyebrow</code> for nav links, form labels and footer headings, <code>button</code> for buttons, <code>price</code> for prices with tabular numerals. <code>h3</code> is the exception: sentence case, for product names.</li><li><strong>Script: Sacramento</strong>, standing in for the hanger script on the logo. <code>script</code> above an <code>h2</code> as a lead-in (&quot;find us&quot;, &quot;new in&quot;), <code>script-lg</code> over the hero. One to three lowercase words, in <code>brick</code> on the surfaces or <code>on-band</code> on band. Never a sentence, never a heading on its own, never for prices or legal text.</li><li><strong>Body: Source Sans 3</strong>, close to the small bold line on the logo. <code>lead</code> under a title, <code>body</code> for everything read, <code>body-strong</code> for emphasis and day names, <code>small</code> for meta and legal lines. Running text stays under 65 characters a line.</li><li>The three faces are self-hosted from <code>fonts/</code> with <code>@font-face</code>; do not load them from Google on the live site.</li></ul>
+<h2 id="spacing-shape-and-borders">Spacing, shape and borders</h2>
+<ul><li>4px base, nine steps. <code>space-4</code> inside cards and as the phone gutter; <code>space-6</code> as the desktop gutter and between cards; <code>space-16</code> between sections, <code>space-12</code> on phones.</li><li>Square by default (<code>radius-none</code>): cards, images, sections, tables. <code>radius-sm</code> on buttons and inputs. <code>radius-full</code> on badges, the basket count and the logo disc. Nothing in between.</li><li>Borders, not shadows: <code>line</code> for dividers and cards, <code>line-strong</code> for input borders. <code>shadow-drawer</code> is for the basket drawer and the phone menu only.</li><li>Content sits in a 1200px container. The header is <code>surface-raised</code> with a <code>line</code> under it and the logo disc at 56px; the footer is <code>band</code>.</li></ul>
+<h2 id="imagery">Imagery</h2>
+<ul><li>Use the warehouse's own photos in <code>assets/Photos</code>: the façade for the hero, the pick-and-choose area and the bales for sections and the Find us page. No stock photography.</li><li>Product photos: one bag per photo, the whole bag in frame, on a plain floor or wall, cropped 4:5. Shoot them in the warehouse; the brick and the containers are part of the brand.</li><li>Photos are square-cornered. Text over a photo needs the <code>overlay</code>.</li></ul>
+<h2 id="iconography">Iconography</h2>
+<ul><li>Inline SVG at 24px with a 1.75 stroke in <code>currentColor</code>: basket, menu, close, map pin, arrow. The system ships no icon files yet; add them under <code>assets/Icons</code> when drawn, each with a usage line in that folder's README.</li><li>Instagram and TikTok: use each platform's official glyph from its own brand resources, or a plain text link. Do not redraw them.</li></ul>
+<h2 id="components">Components</h2>
+<p>Markup patterns in <code>components/bundle.css</code> (classes prefixed <code>vwg-</code>), with builders for the small reusable ones in <code>components/bundle.js</code> as <code>window.VWG</code>. Each component's README shows the markup; its preview shows it live in both themes.</p>
+<ul><li><code>Button</code>: primary (<code>ink</code>), brick, outline, link; inverse and ghost on <code>band</code>. One primary per view.</li><li><code>Badge</code>: Vintage, New, In stock, Sold out, and a neutral tone for sizes.</li><li><code>ProductCard</code>: photo with its badge, name, weight and piece count, price with &quot;UK delivery only&quot;, Add to basket.</li><li><code>SectionHeading</code>: script lead-in, uppercase <code>h2</code>, short rule, optional intro.</li><li><code>Field</code>: label, input or textarea, hint, error state.</li><li><code>SiteHeader</code>: the logo disc, Shop online · Find us · Contact us, basket with count.</li><li><code>Hero</code>: the façade photo under <code>overlay</code>, script line, uppercase headline, two buttons.</li><li><code>OpeningHours</code>: the Find us block with address, directions button and the hours table.</li><li><code>SiteFooter</code>: <code>band</code>, white logo, Shop, Visit (hours) and Follow columns, copyright and &quot;UK delivery only&quot;.</li><li><code>Invoice</code>: the automatically generated &quot;Online order invoice&quot;, numbered in sequence, with the logo, parties, lines and totals.</li></ul>
+<h2 id="using-this-system">Using this system</h2>
+<ul><li>Load the compiled <code>tokens.css</code> (every token as a custom property and every type style as a class), then <code>components/bundle.css</code>, then the fonts from <code>fonts/</code>.</li><li>Build pages from the component markup; call <code>VWG.Button</code>, <code>VWG.Badge</code>, <code>VWG.ProductCard</code>, <code>VWG.SectionHeading</code> and <code>VWG.Field</code> from <code>bundle.js</code> where markup is generated in the browser. <code>VWG.formatPrice(pence)</code> and <code>VWG.invoiceNumber(n)</code> keep prices and invoice numbers in the house format.</li><li>Logos: <code>logo-black.png</code> on light surfaces, <code>logo-white.png</code> on <code>band</code> and in the dark theme; the <code>icon-*.png</code> set is the favicon and app icon.</li></ul></article>
+<section class="sg-prose" id="files">
+<h2>Files for the website build</h2>
+<p>Everything the site needs is in <code>dist/</code>. Link the two stylesheets and the script, copy the folders, and build pages from the component markup.</p>
+<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;dist/tokens.css&quot;&gt;   &lt;!-- generated from project/tokens.json --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;dist/vwg.css&quot;&gt;      &lt;!-- the components --&gt;
+&lt;script src=&quot;dist/vwg.js&quot;&gt;&lt;/script&gt;              &lt;!-- window.VWG builders and helpers --&gt;</code></pre>
+<ul>
+<li><code>dist/tokens.css</code> — every token as a custom property, both themes, and a class per type style.</li>
+<li><code>dist/vwg.css</code>, <code>dist/vwg.js</code> — the component styles and the <code>VWG</code> builders.</li>
+<li><code>dist/fonts/</code> — the three typefaces, self-hosted.</li>
+<li><code>dist/images/</code> — logos, favicons and the shop photos.</li>
+<li><code>project/</code> — the source: tokens, brand book, component guidelines and previews. Edit there and run <code>node build.js</code>.</li>
+</ul>
+</section>
+</main>
+</div>
+<footer class="sg-foot">Vintage Warehouse Glasgow design system · built 2026-10-27 from <code>project/</code> · <a href="https://github.com/alltimehasan/vintagewarehouseglasgow-design-system">source</a></footer>
+<script src="site.js"></script>
+</body>
+</html>

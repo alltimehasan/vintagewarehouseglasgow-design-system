@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Type · Vintage Warehouse Glasgow</title>
+<meta name="description" content="Three faces, each with one job: bold uppercase display, a script lead-in, and a plain body face. All self-hosted.">
+<link rel="icon" href="dist/images/icon-32.png" sizes="32x32">
+<link rel="icon" href="dist/images/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="dist/images/icon-180.png">
+<link rel="stylesheet" href="dist/tokens.css">
+<link rel="stylesheet" href="site.css">
+<script>try{var t=localStorage.getItem('vwg-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+</head>
+<body>
+<a class="sg-skip" href="#main">Skip to content</a>
+<header class="sg-top">
+  <a class="sg-brand" href="index.html">
+    <img class="sg-logo-light" src="dist/images/logo-black.png" alt="" width="44" height="44">
+    <img class="sg-logo-dark" src="dist/images/logo-white.png" alt="" width="44" height="44">
+    <span>Vintage Warehouse Glasgow<small>Design system</small></span>
+  </a>
+  <div class="sg-theme" role="group" aria-label="Theme">
+    <button type="button" data-theme-choice="light" aria-pressed="false">Light</button>
+    <button type="button" data-theme-choice="system" aria-pressed="false">Auto</button>
+    <button type="button" data-theme-choice="dark" aria-pressed="false">Dark</button>
+  </div>
+</header>
+<div class="sg-shell">
+<nav class="sg-nav" aria-label="Pages">
+<a href="index.html">Overview</a>
+<a href="colour.html">Colour</a>
+<a href="type.html" aria-current="page">Type</a>
+<a href="layout.html">Layout</a>
+<a href="components.html">Components</a>
+<a href="assets.html">Assets</a>
+</nav>
+<main id="main" class="sg-main">
+<div class="sg-head">
+  <span class="sg-eyebrow">Foundations</span>
+  <h1>Type</h1>
+  <p>Three faces, each with one job: bold uppercase display, a script lead-in, and a plain body face. All self-hosted.</p>
+</div>
+
+<section class="sg-group" id="fonts"><h2>Faces</h2>
+<div class="sg-table-wrap"><table class="sg-table"><thead><tr><th>Family</th><th>Weights</th><th>Style</th><th>File</th></tr></thead><tbody><tr><td>Montserrat</td><td>600 800</td><td>normal</td><td><a href="dist/fonts/Montserrat-600-800.woff2">Montserrat-600-800.woff2</a></td></tr><tr><td>Sacramento</td><td>400</td><td>normal</td><td><a href="dist/fonts/Sacramento-400.woff2">Sacramento-400.woff2</a></td></tr><tr><td>Source Sans 3</td><td>400 600</td><td>normal</td><td><a href="dist/fonts/SourceSans3-400-600.woff2">SourceSans3-400-600.woff2</a></td></tr><tr><td>Source Sans 3</td><td>400</td><td>italic</td><td><a href="dist/fonts/SourceSans3-400-italic.woff2">SourceSans3-400-italic.woff2</a></td></tr></tbody></table></div>
+<div class="sg-table-wrap"><table class="sg-table"><thead><tr><th>Token</th><th>Stack</th></tr></thead><tbody><tr><td><code>--font-display</code></td><td>&quot;Montserrat&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif</td></tr><tr><td><code>--font-script</code></td><td>&quot;Sacramento&quot;, &quot;Brush Script MT&quot;, cursive</td></tr><tr><td><code>--font-body</code></td><td>&quot;Source Sans 3&quot;, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif</td></tr></tbody></table></div>
+</section>
+<section class="sg-group" id="display"><h2>Display</h2><p class="sg-note">Montserrat, the face closest to the logo ring. Uppercase and tracked, except h3.</p><div class="sg-specimen"><div class="sg-specimen-meta"><span><strong>.hero</strong></span><span>56px / 60px</span><span>weight 800</span><span>tracking 0.01em</span></div><div class="sg-specimen-sample hero">VINTAGE WAREHOUSE GLASGOW</div><p>The homepage hero only. 40px/44px under 600px.</p></div>
+<div class="sg-specimen"><div class="sg-specimen-meta"><span><strong>.h1</strong></span><span>40px / 44px</span><span>weight 800</span><span>tracking 0.01em</span></div><div class="sg-specimen-sample h1">SHOP ONLINE</div><p>Page titles, uppercase. 32px/36px under 600px.</p></div>
+<div class="sg-specimen"><div class="sg-specimen-meta"><span><strong>.h2</strong></span><span>28px / 34px</span><span>weight 700</span><span>tracking 0.02em</span></div><div class="sg-specimen-sample h2">BAGS OF VINTAGE AND NEW STOCK</div><p>Section headings, uppercase, usually under a script lead-in.</p></div>
+<div class="sg-specimen"><div class="sg-specimen-meta"><span><strong>.h3</strong></span><span>18px / 24px</span><span>weight 700</span></div><div class="sg-specimen-sample h3">Mixed vintage bag</div><p>Product names and card titles. Sentence case: the one display style that is not uppercase.</p></div>
+<div class="sg-specimen"><div class="sg-specimen-meta"><span><strong>.eyebrow</strong></span><span>12px / 16px</span><span>weight 700</span><span>tracking 0.14em</span></div><div class="sg-specimen-sample eyebrow">OUTLETS NEW &amp; SECONDHAND</div><p>Nav links, form labels, footer headings, table headings. Uppercase, like the ring on the logo.</p></div>
+<div class="sg-specimen"><div class="sg-specimen-meta"><span><strong>.button</strong></span><span>13px / 20px</span><span>weight 700</span><span>tracking 0.08em</span></div><div class="sg-specimen-sample button">ADD TO BASKET</div><p>Button labels, uppercase.</p></div>
+<div class="sg-specimen"><div class="sg-specimen-meta"><span><strong>.price</strong></span><span>20px / 24px</span><span>weight 700</span></div><div class="sg-specimen-sample price">£60.00</div><p>Prices, basket totals and the invoice total, with tabular numerals.</p></div></section>
+<section class="sg-group" id="script"><h2>Script</h2><p class="sg-note">Sacramento stands in for the hanger script on the logo. One short lowercase phrase at a time.</p><div class="sg-specimen"><div class="sg-specimen-meta"><span><strong>.script-lg</strong></span><span>48px / 52px</span><span>weight 400</span></div><div class="sg-specimen-sample script-lg">outlets, new &amp; secondhand</div><p>Over the hero headline, in on-band. 36px/40px under 600px.</p></div>
+<div class="sg-specimen"><div class="sg-specimen-meta"><span><strong>.script</strong></span><span>32px / 36px</span><span>weight 400</span></div><div class="sg-specimen-sample script">find us</div><p>A one-to-three-word lead-in above an h2, in brick. Never a heading on its own, never a sentence.</p></div></section>
+<section class="sg-group" id="text"><h2>Text</h2><p class="sg-note">Source Sans 3, close to the small bold line on the logo. Everything that is read.</p><div class="sg-specimen"><div class="sg-specimen-meta"><span><strong>.lead</strong></span><span>20px / 30px</span><span>weight 400</span></div><div class="sg-specimen-sample lead">New and secondhand clothing, sold by the bag.</div><p>The paragraph under a page title or hero headline.</p></div>
+<div class="sg-specimen"><div class="sg-specimen-meta"><span><strong>.body</strong></span><span>17px / 26px</span><span>weight 400</span></div><div class="sg-specimen-sample body">Order online for delivery anywhere in the UK, or come in and pick and choose.</div><p>Running text, product descriptions, form inputs, table cells. Keep lines under 65 characters.</p></div>
+<div class="sg-specimen"><div class="sg-specimen-meta"><span><strong>.body-strong</strong></span><span>17px / 26px</span><span>weight 600</span></div><div class="sg-specimen-sample body-strong">Saturday</div><p>Emphasis inside body text; day names in the hours table.</p></div>
+<div class="sg-specimen"><div class="sg-specimen-meta"><span><strong>.small</strong></span><span>14px / 20px</span><span>weight 400</span></div><div class="sg-specimen-sample small">Approx. 20 kg · UK delivery only</div><p>Product meta, helper text, the copyright line and invoice footers.</p></div></section>
+</main>
+</div>
+<footer class="sg-foot">Vintage Warehouse Glasgow design system · built 2026-10-27 from <code>project/</code> · <a href="https://github.com/alltimehasan/vintagewarehouseglasgow-design-system">source</a></footer>
+<script src="site.js"></script>
+</body>
+</html>

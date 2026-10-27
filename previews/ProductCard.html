@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8">
+<link rel="stylesheet" href="../dist/tokens.css">
+<link rel="stylesheet" href="../dist/vwg.css">
+<script src="../dist/vwg.js"></script>
+<script>(function(){var d=document.documentElement;function set(t){if(t==='light'||t==='dark')d.setAttribute('data-theme',t);else d.removeAttribute('data-theme')}var q=new URLSearchParams(location.search).get('theme');if(q)set(q);addEventListener('message',function(e){var m=e.data;if(m&&m.type==='vwg-theme')set(m.theme)});function size(){if(parent!==window)parent.postMessage({type:'vwg-size',height:d.scrollHeight},'*')}addEventListener('load',function(){if(parent!==window)parent.postMessage({type:'vwg-ready'},'*');size();if(window.ResizeObserver)new ResizeObserver(size).observe(document.body)})})();</script><title>ProductCard — preview</title></head>
+<body>
+<div class="vwg-grid" style="padding: var(--space-4)">
+  <article class="vwg-card">
+    <a class="vwg-card-media" href="#">
+      <img src="../dist/images/clothing-bales.jpg" alt="Mixed vintage bag, about 20 kg">
+      <span class="vwg-badge vwg-badge-vintage vwg-card-badge">Vintage</span>
+    </a>
+    <div class="vwg-card-body">
+      <h3 class="vwg-card-title"><a href="#">Mixed vintage bag</a></h3>
+      <p class="vwg-card-meta">Approx. 20 kg · 60–80 pieces · mixed sizes</p>
+      <div class="vwg-card-foot">
+        <p class="vwg-price">£60.00 <small>UK delivery only</small></p>
+        <button class="vwg-btn vwg-btn-primary vwg-btn-sm" type="button">Add to basket</button>
+      </div>
+    </div>
+  </article>
+  <article class="vwg-card">
+    <a class="vwg-card-media" href="#">
+      <img src="../dist/images/pick-and-choose-area.jpg" alt="Branded outlet bag, about 15 kg">
+      <span class="vwg-badge vwg-badge-new vwg-card-badge">New</span>
+    </a>
+    <div class="vwg-card-body">
+      <h3 class="vwg-card-title"><a href="#">Branded outlet bag</a></h3>
+      <p class="vwg-card-meta">Approx. 15 kg · 40–50 pieces · with tags</p>
+      <div class="vwg-card-foot">
+        <p class="vwg-price">£95.00 <small>UK delivery only</small></p>
+        <button class="vwg-btn vwg-btn-primary vwg-btn-sm" type="button">Add to basket</button>
+      </div>
+    </div>
+  </article>
+  <article class="vwg-card vwg-card-sold">
+    <a class="vwg-card-media" href="#">
+      <img src="../dist/images/clothing-bales.jpg" alt="Vintage denim bag, about 20 kg">
+      <span class="vwg-badge vwg-badge-sold vwg-card-badge">Sold out</span>
+    </a>
+    <div class="vwg-card-body">
+      <h3 class="vwg-card-title"><a href="#">Vintage denim bag</a></h3>
+      <p class="vwg-card-meta">Approx. 20 kg · 40–50 pieces · jeans and jackets</p>
+      <div class="vwg-card-foot">
+        <p class="vwg-price">£75.00 <small>UK delivery only</small></p>
+        <button class="vwg-btn vwg-btn-primary vwg-btn-sm" type="button" disabled>Sold out</button>
+      </div>
+    </div>
+  </article>
+</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8">
+<link rel="stylesheet" href="../dist/tokens.css">
+<link rel="stylesheet" href="../dist/vwg.css">
+<script src="../dist/vwg.js"></script>
+<script>(function(){var d=document.documentElement;function set(t){if(t==='light'||t==='dark')d.setAttribute('data-theme',t);else d.removeAttribute('data-theme')}var q=new URLSearchParams(location.search).get('theme');if(q)set(q);addEventListener('message',function(e){var m=e.data;if(m&&m.type==='vwg-theme')set(m.theme)});function size(){if(parent!==window)parent.postMessage({type:'vwg-size',height:d.scrollHeight},'*')}addEventListener('load',function(){if(parent!==window)parent.postMessage({type:'vwg-ready'},'*');size();if(window.ResizeObserver)new ResizeObserver(size).observe(document.body)})})();</script><title>Badge — preview</title></head>
+<body>
+<div class="vwg-row">
+  <span class="vwg-badge vwg-badge-vintage">Vintage</span>
+  <span class="vwg-badge vwg-badge-new">New</span>
+  <span class="vwg-badge vwg-badge-stock">In stock</span>
+  <span class="vwg-badge vwg-badge-sold">Sold out</span>
+  <span class="vwg-badge vwg-badge-danger">Payment failed</span>
+  <span class="vwg-badge">Mixed sizes</span>
+</div>
+</body>
+</html>

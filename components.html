@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Components · Vintage Warehouse Glasgow</title>
+<meta name="description" content="10 patterns the website is built from, each with its live preview, guidelines and markup. Styles are in dist/vwg.css with the prefix vwg-; small ones also have builders in dist/vwg.js as window.VWG.">
+<link rel="icon" href="dist/images/icon-32.png" sizes="32x32">
+<link rel="icon" href="dist/images/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="dist/images/icon-180.png">
+<link rel="stylesheet" href="dist/tokens.css">
+<link rel="stylesheet" href="site.css">
+<script>try{var t=localStorage.getItem('vwg-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+</head>
+<body>
+<a class="sg-skip" href="#main">Skip to content</a>
+<header class="sg-top">
+  <a class="sg-brand" href="index.html">
+    <img class="sg-logo-light" src="dist/images/logo-black.png" alt="" width="44" height="44">
+    <img class="sg-logo-dark" src="dist/images/logo-white.png" alt="" width="44" height="44">
+    <span>Vintage Warehouse Glasgow<small>Design system</small></span>
+  </a>
+  <div class="sg-theme" role="group" aria-label="Theme">
+    <button type="button" data-theme-choice="light" aria-pressed="false">Light</button>
+    <button type="button" data-theme-choice="system" aria-pressed="false">Auto</button>
+    <button type="button" data-theme-choice="dark" aria-pressed="false">Dark</button>
+  </div>
+</header>
+<div class="sg-shell">
+<nav class="sg-nav" aria-label="Pages">
+<a href="index.html">Overview</a>
+<a href="colour.html">Colour</a>
+<a href="type.html">Type</a>
+<a href="layout.html">Layout</a>
+<a href="components.html" aria-current="page">Components</a>
+<a href="assets.html">Assets</a>
+</nav>
+<main id="main" class="sg-main">
+<div class="sg-head">
+  <span class="sg-eyebrow">Build</span>
+  <h1>Components</h1>
+  <p>10 patterns the website is built from, each with its live preview, guidelines and markup. Styles are in dist/vwg.css with the prefix vwg-; small ones also have builders in dist/vwg.js as window.VWG.</p>
+</div>
+<nav class="sg-toc" aria-label="Components"><a href="#button">Button</a><a href="#badge">Badge</a><a href="#productcard">ProductCard</a><a href="#sectionheading">SectionHeading</a><a href="#field">Field</a><a href="#siteheader">SiteHeader</a><a href="#hero">Hero</a><a href="#openinghours">OpeningHours</a><a href="#sitefooter">SiteFooter</a><a href="#invoice">Invoice</a></nav>
+<section class="sg-component" id="button">
+<header><span class="sg-eyebrow">Actions</span><h2>Button</h2></header>
+<div class="sg-preview" data-width="960" data-height="176"><iframe src="previews/Button.html" title="Button preview" width="960" height="176" loading="lazy"></iframe></div>
+<div class="sg-preview-bar"><span>Live preview, 960px layout, follows the theme switch.</span><a class="sg-open" href="previews/Button.html" target="_blank" rel="noopener">Open in a new tab</a></div>
+<div class="sg-prose"><p>One primary button per view, for the thing the page is for; everything else is outline or a link. Labels are verbs in sentence case (&quot;Add to basket&quot;); the style sets them uppercase.</p>
+<pre><code class="language-html">&lt;a class=&quot;vwg-btn vwg-btn-primary&quot; href=&quot;/shop&quot;&gt;Shop online&lt;/a&gt;
+&lt;button class=&quot;vwg-btn vwg-btn-outline&quot; type=&quot;button&quot;&gt;Get directions&lt;/button&gt;
+&lt;button class=&quot;vwg-btn vwg-btn-link&quot; type=&quot;button&quot;&gt;View all bags&lt;/button&gt;</code></pre>
+<ul><li><code>vwg-btn-primary</code> is an <code>ink</code> fill; <code>vwg-btn-brick</code> the accent fill, for the hero's call to action or checkout; <code>vwg-btn-outline</code> and <code>vwg-btn-link</code> for secondary actions.</li><li>On <code>band</code> use <code>vwg-btn-inverse</code> (filled) and <code>vwg-btn-ghost</code> (outlined); never the primary, which disappears.</li><li><code>vwg-btn-sm</code> inside product cards; <code>vwg-btn-block</code> on phones at checkout.</li><li>Hover swaps to brick (or to ink on the brick button). Focus shows <code>focus-ring</code>. Disabled is 45% and not clickable, with a label that says why (&quot;Sold out&quot;).</li><li>From JavaScript: <code>VWG.Button({ label, variant, size, href, onClick })</code>.</li></ul></div>
+<details><summary>Preview markup</summary><pre><code class="language-html">&lt;div class=&quot;vwg-row&quot;&gt;
+  &lt;button class=&quot;vwg-btn vwg-btn-primary&quot; type=&quot;button&quot;&gt;Add to basket&lt;/button&gt;
+  &lt;button class=&quot;vwg-btn vwg-btn-brick&quot; type=&quot;button&quot;&gt;Shop online&lt;/button&gt;
+  &lt;button class=&quot;vwg-btn vwg-btn-outline&quot; type=&quot;button&quot;&gt;Get directions&lt;/button&gt;
+  &lt;button class=&quot;vwg-btn vwg-btn-link&quot; type=&quot;button&quot;&gt;View all bags&lt;/button&gt;
+  &lt;button class=&quot;vwg-btn vwg-btn-primary vwg-btn-sm&quot; type=&quot;button&quot;&gt;Add to basket&lt;/button&gt;
+  &lt;button class=&quot;vwg-btn vwg-btn-primary&quot; type=&quot;button&quot; disabled&gt;Sold out&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class=&quot;vwg-row vwg-band&quot;&gt;
+  &lt;a class=&quot;vwg-btn vwg-btn-inverse&quot; href=&quot;#&quot;&gt;Shop online&lt;/a&gt;
+  &lt;a class=&quot;vwg-btn vwg-btn-ghost&quot; href=&quot;#&quot;&gt;Find us&lt;/a&gt;
+&lt;/div&gt;</code></pre></details>
+</section>
+
+<section class="sg-component" id="badge">
+<header><span class="sg-eyebrow">Status</span><h2>Badge</h2></header>
+<div class="sg-preview" data-width="960" data-height="64"><iframe src="previews/Badge.html" title="Badge preview" width="960" height="64" loading="lazy"></iframe></div>
+<div class="sg-preview-bar"><span>Live preview, 960px layout, follows the theme switch.</span><a class="sg-open" href="previews/Badge.html" target="_blank" rel="noopener">Open in a new tab</a></div>
+<div class="sg-prose"><p>One or two uppercase words of status, as a pill. Every product carries Vintage or New; stock and sold-out states come from the shop.</p>
+<pre><code class="language-html">&lt;span class=&quot;vwg-badge vwg-badge-vintage&quot;&gt;Vintage&lt;/span&gt;
+&lt;span class=&quot;vwg-badge vwg-badge-new&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;vwg-badge vwg-badge-stock&quot;&gt;In stock&lt;/span&gt;
+&lt;span class=&quot;vwg-badge vwg-badge-sold&quot;&gt;Sold out&lt;/span&gt;
+&lt;span class=&quot;vwg-badge&quot;&gt;Mixed sizes&lt;/span&gt;</code></pre>
+<ul><li>Tones: <code>vintage</code> (brick on brick-soft), <code>new</code> (blue on blue-soft), <code>stock</code>, <code>sold</code> (muted), <code>danger</code> (payment failed), and none for neutral facts like sizes.</li><li>The word carries the meaning; the colour only repeats it.</li><li>On a product photo, position it with <code>vwg-card-badge</code>.</li><li>From JavaScript: <code>VWG.Badge({ label, tone })</code>.</li></ul></div>
+<details><summary>Preview markup</summary><pre><code class="language-html">&lt;div class=&quot;vwg-row&quot;&gt;
+  &lt;span class=&quot;vwg-badge vwg-badge-vintage&quot;&gt;Vintage&lt;/span&gt;
+  &lt;span class=&quot;vwg-badge vwg-badge-new&quot;&gt;New&lt;/span&gt;
+  &lt;span class=&quot;vwg-badge vwg-badge-stock&quot;&gt;In stock&lt;/span&gt;
+  &lt;span class=&quot;vwg-badge vwg-badge-sold&quot;&gt;Sold out&lt;/span&gt;
+  &lt;span class=&quot;vwg-badge vwg-badge-danger&quot;&gt;Payment failed&lt;/span&gt;
+  &lt;span class=&quot;vwg-badge&quot;&gt;Mixed sizes&lt;/span&gt;
+&lt;/div&gt;</code></pre></details>
+</section>
+
+<section class="sg-component" id="productcard">
+<header><span class="sg-eyebrow">Shop</span><h2>ProductCard</h2></header>
+<div class="sg-preview" data-width="960" data-height="560"><iframe src="previews/ProductCard.html" title="ProductCard preview" width="960" height="560" loading="lazy"></iframe></div>
+<div class="sg-preview-bar"><span>Live preview, 960px layout, follows the theme switch.</span><a class="sg-open" href="previews/ProductCard.html" target="_blank" rel="noopener">Open in a new tab</a></div>
+<div class="sg-prose"><p>A bag for sale: photo with its Vintage or New badge, name, weight and piece count, the price with &quot;UK delivery only&quot; under it, and Add to basket. The shop has about six of these, in a <code>vwg-grid</code>.</p>
+<pre><code class="language-html">&lt;article class=&quot;vwg-card&quot;&gt;
+  &lt;a class=&quot;vwg-card-media&quot; href=&quot;/shop/mixed-vintage-bag&quot;&gt;
+    &lt;img src=&quot;/images/mixed-vintage-bag.jpg&quot; alt=&quot;Mixed vintage bag, about 20 kg&quot;&gt;
+    &lt;span class=&quot;vwg-badge vwg-badge-vintage vwg-card-badge&quot;&gt;Vintage&lt;/span&gt;
+  &lt;/a&gt;
+  &lt;div class=&quot;vwg-card-body&quot;&gt;
+    &lt;h3 class=&quot;vwg-card-title&quot;&gt;&lt;a href=&quot;/shop/mixed-vintage-bag&quot;&gt;Mixed vintage bag&lt;/a&gt;&lt;/h3&gt;
+    &lt;p class=&quot;vwg-card-meta&quot;&gt;Approx. 20 kg · 60–80 pieces · mixed sizes&lt;/p&gt;
+    &lt;div class=&quot;vwg-card-foot&quot;&gt;
+      &lt;p class=&quot;vwg-price&quot;&gt;£60.00 &lt;small&gt;UK delivery only&lt;/small&gt;&lt;/p&gt;
+      &lt;button class=&quot;vwg-btn vwg-btn-primary vwg-btn-sm&quot; type=&quot;button&quot;&gt;Add to basket&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+<ul><li>The photo is 4:5 and shows the whole bag. Until product photos arrive, the bales photo stands in.</li><li>Sold out: add <code>vwg-card-sold</code> to the article, swap the badge to <code>vwg-badge-sold</code> and disable the button with the label &quot;Sold out&quot;. Never hide a sold-out bag; people come back for it.</li><li>The name is sentence case (<code>h3</code>); the price is the <code>price</code> style with tabular numerals.</li><li>From JavaScript: <code>VWG.ProductCard({ name, image, kind: 'vintage' | 'new', meta, pricePence, soldOut, onAdd })</code>.</li><li>Prices in the preview are examples; the real list comes from the client.</li></ul></div>
+<details><summary>Preview markup</summary><pre><code class="language-html">&lt;div class=&quot;vwg-grid&quot; style=&quot;padding: var(--space-4)&quot;&gt;
+  &lt;article class=&quot;vwg-card&quot;&gt;
+    &lt;a class=&quot;vwg-card-media&quot; href=&quot;#&quot;&gt;
+      &lt;img src=&quot;dist/images/clothing-bales.jpg&quot; alt=&quot;Mixed vintage bag, about 20 kg&quot;&gt;
+      &lt;span class=&quot;vwg-badge vwg-badge-vintage vwg-card-badge&quot;&gt;Vintage&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;div class=&quot;vwg-card-body&quot;&gt;
+      &lt;h3 class=&quot;vwg-card-title&quot;&gt;&lt;a href=&quot;#&quot;&gt;Mixed vintage bag&lt;/a&gt;&lt;/h3&gt;
+      &lt;p class=&quot;vwg-card-meta&quot;&gt;Approx. 20 kg · 60–80 pieces · mixed sizes&lt;/p&gt;
+      &lt;div class=&quot;vwg-card-foot&quot;&gt;
+        &lt;p class=&quot;vwg-price&quot;&gt;£60.00 &lt;small&gt;UK delivery only&lt;/small&gt;&lt;/p&gt;
+        &lt;button class=&quot;vwg-btn vwg-btn-primary vwg-btn-sm&quot; type=&quot;button&quot;&gt;Add to basket&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/article&gt;
+  &lt;article class=&quot;vwg-card&quot;&gt;
+    &lt;a class=&quot;vwg-card-media&quot; href=&quot;#&quot;&gt;
+      &lt;img src=&quot;dist/images/pick-and-choose-area.jpg&quot; alt=&quot;Branded outlet bag, about 15 kg&quot;&gt;
+      &lt;span class=&quot;vwg-badge vwg-badge-new vwg-card-badge&quot;&gt;New&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;div class=&quot;vwg-card-body&quot;&gt;
+      &lt;h3 class=&quot;vwg-card-title&quot;&gt;&lt;a href=&quot;#&quot;&gt;Branded outlet bag&lt;/a&gt;&lt;/h3&gt;
+      &lt;p class=&quot;vwg-card-meta&quot;&gt;Approx. 15 kg · 40–50 pieces · with tags&lt;/p&gt;
+      &lt;div class=&quot;vwg-card-foot&quot;&gt;
+        &lt;p class=&quot;vwg-price&quot;&gt;£95.00 &lt;small&gt;UK delivery only&lt;/small&gt;&lt;/p&gt;
+        &lt;button class=&quot;vwg-btn vwg-btn-primary vwg-btn-sm&quot; type=&quot;button&quot;&gt;Add to basket&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/article&gt;
+  &lt;article class=&quot;vwg-card vwg-card-sold&quot;&gt;
+    &lt;a class=&quot;vwg-card-media&quot; href=&quot;#&quot;&gt;
+      &lt;img src=&quot;dist/images/clothing-bales.jpg&quot; alt=&quot;Vintage denim bag, about 20 kg&quot;&gt;
+      &lt;span class=&quot;vwg-badge vwg-badge-sold vwg-card-badge&quot;&gt;Sold out&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;div class=&quot;vwg-card-body&quot;&gt;
+      &lt;h3 class=&quot;vwg-card-title&quot;&gt;&lt;a href=&quot;#&quot;&gt;Vintage denim bag&lt;/a&gt;&lt;/h3&gt;
+      &lt;p class=&quot;vwg-card-meta&quot;&gt;Approx. 20 kg · 40–50 pieces · jeans and jackets&lt;/p&gt;
+      &lt;div class=&quot;vwg-card-foot&quot;&gt;
+        &lt;p class=&quot;vwg-price&quot;&gt;£75.00 &lt;small&gt;UK delivery only&lt;/small&gt;&lt;/p&gt;
+        &lt;button class=&quot;vwg-btn vwg-btn-primary vwg-btn-sm&quot; type=&quot;button&quot; disabled&gt;Sold out&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/article&gt;
+&lt;/div&gt;</code></pre></details>
+</section>
+
+<section class="sg-component" id="sectionheading">
+<header><span class="sg-eyebrow">Content</span><h2>SectionHeading</h2></header>
+<div class="sg-preview" data-width="960" data-height="200"><iframe src="previews/SectionHeading.html" title="SectionHeading preview" width="960" height="200" loading="lazy"></iframe></div>
+<div class="sg-preview-bar"><span>Live preview, 960px layout, follows the theme switch.</span><a class="sg-open" href="previews/SectionHeading.html" target="_blank" rel="noopener">Open in a new tab</a></div>
+<div class="sg-prose"><p>Every section opens the same way: a script lead-in in brick, the uppercase heading, a short black rule, and an optional one-line intro. The pattern is the logo's: script over bold caps.</p>
+<pre><code class="language-html">&lt;div class=&quot;vwg-section-heading&quot;&gt;
+  &lt;span class=&quot;vwg-script&quot; aria-hidden=&quot;true&quot;&gt;shop online&lt;/span&gt;
+  &lt;h2 id=&quot;shop&quot;&gt;Bags of vintage and new stock&lt;/h2&gt;
+  &lt;div class=&quot;vwg-rule&quot; aria-hidden=&quot;true&quot;&gt;&lt;/div&gt;
+  &lt;p&gt;Six bags, packed by hand in Glasgow. UK delivery only.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+<ul><li>The lead-in is one to three lowercase words and is decorative (<code>aria-hidden</code>); the <code>h2</code> carries the meaning.</li><li>On <code>band</code> the rule and intro switch to <code>on-band</code> and <code>on-band-muted</code> by themselves.</li><li>From JavaScript: <code>VWG.SectionHeading({ lead, title, intro })</code>.</li></ul></div>
+<details><summary>Preview markup</summary><pre><code class="language-html">&lt;div style=&quot;padding: var(--space-6)&quot;&gt;
+  &lt;div class=&quot;vwg-section-heading&quot;&gt;
+    &lt;span class=&quot;vwg-script&quot; aria-hidden=&quot;true&quot;&gt;shop online&lt;/span&gt;
+    &lt;h2&gt;Bags of vintage and new stock&lt;/h2&gt;
+    &lt;div class=&quot;vwg-rule&quot; aria-hidden=&quot;true&quot;&gt;&lt;/div&gt;
+    &lt;p&gt;Six bags, packed by hand in Glasgow. UK delivery only.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></details>
+</section>
+
+<section class="sg-component" id="field">
+<header><span class="sg-eyebrow">Forms</span><h2>Field</h2></header>
+<div class="sg-preview" data-width="960" data-height="460"><iframe src="previews/Field.html" title="Field preview" width="960" height="460" loading="lazy"></iframe></div>
+<div class="sg-preview-bar"><span>Live preview, 960px layout, follows the theme switch.</span><a class="sg-open" href="previews/Field.html" target="_blank" rel="noopener">Open in a new tab</a></div>
+<div class="sg-prose"><p>A label, a control, and a hint that turns into the error. Used on the contact form and at checkout.</p>
+<pre><code class="language-html">&lt;div class=&quot;vwg-field&quot;&gt;
+  &lt;label for=&quot;email&quot;&gt;Email&lt;/label&gt;
+  &lt;input class=&quot;vwg-input&quot; id=&quot;email&quot; name=&quot;email&quot; type=&quot;email&quot; autocomplete=&quot;email&quot; aria-describedby=&quot;email-hint&quot; required&gt;
+  &lt;p class=&quot;vwg-field-hint&quot; id=&quot;email-hint&quot;&gt;We only use it for your order confirmation and invoice.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+<ul><li>Labels are the <code>eyebrow</code> style and always visible; placeholders never replace them.</li><li>Inputs are 48px tall with a <code>line-strong</code> border, <code>surface-raised</code> fill and <code>radius-sm</code>; focus turns the border <code>ink</code> and shows <code>focus-ring</code>.</li><li>Error: add <code>vwg-field-error</code> to the wrapper, set <code>aria-invalid=&quot;true&quot;</code>, and write the fix in the hint (&quot;Enter an email address like name@example.com&quot;). The hint is <code>danger</code>; the word does the work, not the colour.</li><li>Stack fields in a <code>vwg-form</code> (16px gaps, 560px wide); the submit is a primary button, &quot;Send message&quot; or &quot;Pay now&quot;.</li><li>From JavaScript: <code>VWG.Field({ id, label, type, hint, error, multiline })</code>.</li></ul></div>
+<details><summary>Preview markup</summary><pre><code class="language-html">&lt;form class=&quot;vwg-form&quot; style=&quot;padding: var(--space-6)&quot; onsubmit=&quot;return false&quot;&gt;
+  &lt;div class=&quot;vwg-field&quot;&gt;
+    &lt;label for=&quot;name&quot;&gt;Name&lt;/label&gt;
+    &lt;input class=&quot;vwg-input&quot; id=&quot;name&quot; name=&quot;name&quot; type=&quot;text&quot; autocomplete=&quot;name&quot; value=&quot;Sam Taylor&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;vwg-field vwg-field-error&quot;&gt;
+    &lt;label for=&quot;email&quot;&gt;Email&lt;/label&gt;
+    &lt;input class=&quot;vwg-input&quot; id=&quot;email&quot; name=&quot;email&quot; type=&quot;email&quot; autocomplete=&quot;email&quot; value=&quot;sam@&quot; aria-invalid=&quot;true&quot; aria-describedby=&quot;email-hint&quot;&gt;
+    &lt;p class=&quot;vwg-field-hint&quot; id=&quot;email-hint&quot;&gt;Enter an email address like name@example.com.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;vwg-field&quot;&gt;
+    &lt;label for=&quot;message&quot;&gt;Message&lt;/label&gt;
+    &lt;textarea class=&quot;vwg-input&quot; id=&quot;message&quot; name=&quot;message&quot; placeholder=&quot;Ask about a bag, a size, or a visit.&quot; aria-describedby=&quot;message-hint&quot;&gt;&lt;/textarea&gt;
+    &lt;p class=&quot;vwg-field-hint&quot; id=&quot;message-hint&quot;&gt;We reply within a working day.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div&gt;&lt;button class=&quot;vwg-btn vwg-btn-primary&quot; type=&quot;submit&quot;&gt;Send message&lt;/button&gt;&lt;/div&gt;
+&lt;/form&gt;</code></pre></details>
+</section>
+
+<section class="sg-component" id="siteheader">
+<header><span class="sg-eyebrow">Layout</span><h2>SiteHeader</h2></header>
+<div class="sg-preview" data-width="1100" data-height="88"><iframe src="previews/SiteHeader.html" title="SiteHeader preview" width="1100" height="88" loading="lazy"></iframe></div>
+<div class="sg-preview-bar"><span>Live preview, 1100px layout, follows the theme switch.</span><a class="sg-open" href="previews/SiteHeader.html" target="_blank" rel="noopener">Open in a new tab</a></div>
+<div class="sg-prose"><p>The top of every page: the logo disc on the left, Shop online · Find us · Contact us, and the basket with its count. White (<code>surface-raised</code>) with a <code>line</code> under it, so the black disc sits on it like the sign on the panel.</p>
+<pre><code class="language-html">&lt;header class=&quot;vwg-header&quot;&gt;
+  &lt;div class=&quot;vwg-container vwg-header-inner&quot;&gt;
+    &lt;a class=&quot;vwg-logo&quot; href=&quot;/&quot; aria-label=&quot;Vintage Warehouse Glasgow, home&quot;&gt;
+      &lt;img class=&quot;vwg-logo-light&quot; src=&quot;/images/logo-black.png&quot; alt=&quot;&quot; width=&quot;56&quot; height=&quot;56&quot;&gt;
+      &lt;img class=&quot;vwg-logo-dark&quot; src=&quot;/images/logo-white.png&quot; alt=&quot;&quot; width=&quot;56&quot; height=&quot;56&quot;&gt;
+    &lt;/a&gt;
+    &lt;nav class=&quot;vwg-nav&quot; aria-label=&quot;Main&quot;&gt;
+      &lt;a href=&quot;/shop&quot; aria-current=&quot;page&quot;&gt;Shop online&lt;/a&gt;
+      &lt;a href=&quot;/find-us&quot;&gt;Find us&lt;/a&gt;
+      &lt;a href=&quot;/contact&quot;&gt;Contact us&lt;/a&gt;
+    &lt;/nav&gt;
+    &lt;button class=&quot;vwg-menu-btn&quot; type=&quot;button&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;menu&quot;&gt;Menu&lt;/button&gt;
+    &lt;a class=&quot;vwg-basket&quot; href=&quot;/basket&quot;&gt;Basket &lt;span class=&quot;vwg-basket-count&quot;&gt;2&lt;/span&gt;&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/header&gt;</code></pre>
+<ul><li>Three links, in this order; the current page gets <code>aria-current=&quot;page&quot;</code> and a brick underline.</li><li>Both logo files go in the markup; the stylesheet shows the black disc on light and the white disc on dark.</li><li>Under 760px the nav hides and the Menu button shows; the menu opens as a <code>surface-raised</code> panel with <code>shadow-drawer</code>.</li><li>The basket count is <code>ink</code> on <code>surface</code>, a pill; hide it when the basket is empty.</li></ul></div>
+<details><summary>Preview markup</summary><pre><code class="language-html">&lt;header class=&quot;vwg-header&quot;&gt;
+  &lt;div class=&quot;vwg-container vwg-header-inner&quot;&gt;
+    &lt;a class=&quot;vwg-logo&quot; href=&quot;#&quot; aria-label=&quot;Vintage Warehouse Glasgow, home&quot;&gt;
+      &lt;img class=&quot;vwg-logo-light&quot; src=&quot;dist/images/logo-black.png&quot; alt=&quot;&quot; width=&quot;56&quot; height=&quot;56&quot;&gt;
+      &lt;img class=&quot;vwg-logo-dark&quot; src=&quot;dist/images/logo-white.png&quot; alt=&quot;&quot; width=&quot;56&quot; height=&quot;56&quot;&gt;
+    &lt;/a&gt;
+    &lt;nav class=&quot;vwg-nav&quot; aria-label=&quot;Main&quot;&gt;
+      &lt;a href=&quot;#&quot; aria-current=&quot;page&quot;&gt;Shop online&lt;/a&gt;
+      &lt;a href=&quot;#&quot;&gt;Find us&lt;/a&gt;
+      &lt;a href=&quot;#&quot;&gt;Contact us&lt;/a&gt;
+    &lt;/nav&gt;
+    &lt;button class=&quot;vwg-menu-btn&quot; type=&quot;button&quot; aria-expanded=&quot;false&quot;&gt;
+      &lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.75&quot; stroke-linecap=&quot;round&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M4 7h16M4 12h16M4 17h16&quot;/&gt;&lt;/svg&gt;
+      Menu
+    &lt;/button&gt;
+    &lt;a class=&quot;vwg-basket&quot; href=&quot;#&quot;&gt;
+      &lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.75&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M6 8h12l-1 12H7L6 8z&quot;/&gt;&lt;path d=&quot;M9 8V6a3 3 0 0 1 6 0v2&quot;/&gt;&lt;/svg&gt;
+      Basket &lt;span class=&quot;vwg-basket-count&quot;&gt;2&lt;/span&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/header&gt;</code></pre></details>
+</section>
+
+<section class="sg-component" id="hero">
+<header><span class="sg-eyebrow">Layout</span><h2>Hero</h2></header>
+<div class="sg-preview" data-width="1100" data-height="470"><iframe src="previews/Hero.html" title="Hero preview" width="1100" height="470" loading="lazy"></iframe></div>
+<div class="sg-preview-bar"><span>Live preview, 1100px layout, follows the theme switch.</span><a class="sg-open" href="previews/Hero.html" target="_blank" rel="noopener">Open in a new tab</a></div>
+<div class="sg-prose"><p>The homepage opens on the façade: the photo under the flat <code>overlay</code>, a script line, the name in the <code>hero</code> style, one sentence, and two buttons. The text sits at the bottom left, on the ground, like the sign on the panel.</p>
+<pre><code class="language-html">&lt;section class=&quot;vwg-hero&quot;&gt;
+  &lt;img class=&quot;vwg-hero-media&quot; src=&quot;/images/warehouse-exterior.jpg&quot; alt=&quot;&quot;&gt;
+  &lt;div class=&quot;vwg-hero-overlay&quot; aria-hidden=&quot;true&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;vwg-container vwg-hero-inner&quot;&gt;
+    &lt;span class=&quot;vwg-script&quot; aria-hidden=&quot;true&quot;&gt;outlets, new &amp;amp; secondhand&lt;/span&gt;
+    &lt;h1&gt;Vintage Warehouse Glasgow&lt;/h1&gt;
+    &lt;p&gt;Vintage and new clothing sold by the bag. Order online for UK delivery, or come in and pick and choose.&lt;/p&gt;
+    &lt;div class=&quot;vwg-hero-actions&quot;&gt;
+      &lt;a class=&quot;vwg-btn vwg-btn-inverse&quot; href=&quot;/shop&quot;&gt;Shop online&lt;/a&gt;
+      &lt;a class=&quot;vwg-btn vwg-btn-ghost&quot; href=&quot;/find-us&quot;&gt;Find us&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+<ul><li>The photo is decorative (<code>alt=&quot;&quot;</code>); the headline is the page's <code>h1</code>.</li><li>Keep the overlay flat and at full strength: the text must read on any photo in both themes.</li><li>Buttons on the hero are <code>inverse</code> and <code>ghost</code>, never primary.</li><li>Under 600px the type steps down to 40px and the top padding to <code>space-16</code>.</li></ul></div>
+<details><summary>Preview markup</summary><pre><code class="language-html">&lt;section class=&quot;vwg-hero&quot;&gt;
+  &lt;img class=&quot;vwg-hero-media&quot; src=&quot;dist/images/warehouse-exterior.jpg&quot; alt=&quot;&quot;&gt;
+  &lt;div class=&quot;vwg-hero-overlay&quot; aria-hidden=&quot;true&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;vwg-container vwg-hero-inner&quot;&gt;
+    &lt;span class=&quot;vwg-script&quot; aria-hidden=&quot;true&quot;&gt;outlets, new &amp;amp; secondhand&lt;/span&gt;
+    &lt;h1&gt;Vintage Warehouse Glasgow&lt;/h1&gt;
+    &lt;p&gt;Vintage and new clothing sold by the bag. Order online for UK delivery, or come in and pick and choose.&lt;/p&gt;
+    &lt;div class=&quot;vwg-hero-actions&quot;&gt;
+      &lt;a class=&quot;vwg-btn vwg-btn-inverse&quot; href=&quot;#&quot;&gt;Shop online&lt;/a&gt;
+      &lt;a class=&quot;vwg-btn vwg-btn-ghost&quot; href=&quot;#&quot;&gt;Find us&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre></details>
+</section>
+
+<section class="sg-component" id="openinghours">
+<header><span class="sg-eyebrow">Find us</span><h2>OpeningHours</h2></header>
+<div class="sg-preview" data-width="1100" data-height="320"><iframe src="previews/OpeningHours.html" title="OpeningHours preview" width="1100" height="320" loading="lazy"></iframe></div>
+<div class="sg-preview-bar"><span>Live preview, 1100px layout, follows the theme switch.</span><a class="sg-open" href="previews/OpeningHours.html" target="_blank" rel="noopener">Open in a new tab</a></div>
+<div class="sg-prose"><p>The Find us block: address and directions on the left, the hours table on the right. It sits beside the map on the Find us page and, smaller, on the homepage.</p>
+<pre><code class="language-html">&lt;section class=&quot;vwg-hours&quot; aria-labelledby=&quot;find-us&quot;&gt;
+  &lt;div&gt;
+    &lt;span class=&quot;vwg-script&quot; aria-hidden=&quot;true&quot;&gt;find us&lt;/span&gt;
+    &lt;h2 id=&quot;find-us&quot;&gt;Vintage Warehouse Glasgow&lt;/h2&gt;
+    &lt;address&gt;Street address&lt;br&gt;Glasgow G0 0AA&lt;/address&gt;
+    &lt;a class=&quot;vwg-btn vwg-btn-outline&quot; href=&quot;https://maps.google.com/?q=...&quot;&gt;Get directions&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;h3&gt;Opening hours&lt;/h3&gt;
+    &lt;table&gt;
+      &lt;tr&gt;&lt;td&gt;Monday to Friday&lt;/td&gt;&lt;td&gt;10am–5pm&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;Saturday&lt;/td&gt;&lt;td&gt;10am–3pm&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;Sunday&lt;/td&gt;&lt;td class=&quot;vwg-closed&quot;&gt;Closed&lt;/td&gt;&lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+<ul><li>Hours as the client gave them: Monday to Friday 10am–5pm, Saturday 10am–3pm. Sunday closed is assumed; confirm it.</li><li>Times use an en dash and no spaces; &quot;Closed&quot; is <code>ink-muted</code>.</li><li>The map is a plain link out (&quot;Get directions&quot;); embed the map beside this block on the Find us page only.</li><li>The street address is still to come; do not publish the block without it.</li></ul></div>
+<details><summary>Preview markup</summary><pre><code class="language-html">&lt;div style=&quot;padding: var(--space-6)&quot;&gt;
+&lt;section class=&quot;vwg-hours&quot; aria-labelledby=&quot;find-us&quot;&gt;
+  &lt;div&gt;
+    &lt;span class=&quot;vwg-script&quot; aria-hidden=&quot;true&quot;&gt;find us&lt;/span&gt;
+    &lt;h2 id=&quot;find-us&quot;&gt;Vintage Warehouse Glasgow&lt;/h2&gt;
+    &lt;address&gt;Street address to be confirmed&lt;br&gt;Glasgow, Scotland&lt;/address&gt;
+    &lt;a class=&quot;vwg-btn vwg-btn-outline&quot; href=&quot;#&quot;&gt;Get directions&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;h3&gt;Opening hours&lt;/h3&gt;
+    &lt;table&gt;
+      &lt;tr&gt;&lt;td&gt;Monday to Friday&lt;/td&gt;&lt;td&gt;10am–5pm&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;Saturday&lt;/td&gt;&lt;td&gt;10am–3pm&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;Sunday&lt;/td&gt;&lt;td class=&quot;vwg-closed&quot;&gt;Closed&lt;/td&gt;&lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+&lt;/div&gt;</code></pre></details>
+</section>
+
+<section class="sg-component" id="sitefooter">
+<header><span class="sg-eyebrow">Layout</span><h2>SiteFooter</h2></header>
+<div class="sg-preview" data-width="1100" data-height="400"><iframe src="previews/SiteFooter.html" title="SiteFooter preview" width="1100" height="400" loading="lazy"></iframe></div>
+<div class="sg-preview-bar"><span>Live preview, 1100px layout, follows the theme switch.</span><a class="sg-open" href="previews/SiteFooter.html" target="_blank" rel="noopener">Open in a new tab</a></div>
+<div class="sg-prose"><p>The black band at the foot of every page: the white logo and one line, then Shop, Visit (the hours) and Follow columns, and a bottom row with the copyright and &quot;UK delivery only&quot;.</p>
+<pre><code class="language-html">&lt;footer class=&quot;vwg-footer&quot;&gt;
+  &lt;div class=&quot;vwg-container vwg-footer-inner&quot;&gt;
+    &lt;div class=&quot;vwg-footer-brand&quot;&gt;
+      &lt;img src=&quot;/images/logo-white.png&quot; alt=&quot;Vintage Warehouse Glasgow&quot; width=&quot;88&quot; height=&quot;88&quot;&gt;
+      &lt;p&gt;New and secondhand clothing, sold by the bag.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;&lt;h4&gt;Shop&lt;/h4&gt;&lt;ul&gt;…&lt;/ul&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;h4&gt;Visit&lt;/h4&gt;&lt;ul&gt;…&lt;/ul&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;h4&gt;Follow&lt;/h4&gt;&lt;ul&gt;…&lt;/ul&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;vwg-container vwg-footer-bottom&quot;&gt;
+    &lt;span&gt;© 2026 Vintage Warehouse Glasgow&lt;/span&gt;
+    &lt;span&gt;UK delivery only · &lt;a href=&quot;/privacy&quot;&gt;Privacy&lt;/a&gt; · &lt;a href=&quot;/terms&quot;&gt;Terms&lt;/a&gt;&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;</code></pre>
+<ul><li>Always <code>logo-white.png</code> here, in both themes.</li><li>Follow links to the Instagram and TikTok pages open in a new tab; text links are fine until the official glyphs are added.</li><li>Four columns, two under 760px, one under 480px.</li><li>The trading name only; the company name belongs on invoices.</li></ul></div>
+<details><summary>Preview markup</summary><pre><code class="language-html">&lt;footer class=&quot;vwg-footer&quot;&gt;
+  &lt;div class=&quot;vwg-container vwg-footer-inner&quot;&gt;
+    &lt;div class=&quot;vwg-footer-brand&quot;&gt;
+      &lt;img src=&quot;dist/images/logo-white.png&quot; alt=&quot;Vintage Warehouse Glasgow&quot; width=&quot;88&quot; height=&quot;88&quot;&gt;
+      &lt;p&gt;New and secondhand clothing, sold by the bag.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;h4&gt;Shop&lt;/h4&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Vintage bags&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;New stock&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Delivery&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;h4&gt;Visit&lt;/h4&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Mon–Fri 10am–5pm&lt;/li&gt;
+        &lt;li&gt;Sat 10am–3pm&lt;/li&gt;
+        &lt;li&gt;Sun closed&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Find us&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;h4&gt;Follow&lt;/h4&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Instagram&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;TikTok&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Contact us&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;vwg-container vwg-footer-bottom&quot;&gt;
+    &lt;span&gt;© 2026 Vintage Warehouse Glasgow&lt;/span&gt;
+    &lt;span&gt;UK delivery only · &lt;a href=&quot;#&quot;&gt;Privacy&lt;/a&gt; · &lt;a href=&quot;#&quot;&gt;Terms&lt;/a&gt;&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;</code></pre></details>
+</section>
+
+<section class="sg-component" id="invoice">
+<header><span class="sg-eyebrow">Documents</span><h2>Invoice</h2></header>
+<div class="sg-preview" data-width="960" data-height="760"><iframe src="previews/Invoice.html" title="Invoice preview" width="960" height="760" loading="lazy"></iframe></div>
+<div class="sg-preview-bar"><span>Live preview, 960px layout, follows the theme switch.</span><a class="sg-open" href="previews/Invoice.html" target="_blank" rel="noopener">Open in a new tab</a></div>
+<div class="sg-prose"><p>The invoice the shop generates for every online order, so nobody writes one by hand. Titled &quot;Online order invoice&quot;, numbered in sequence with four digits, on a <code>surface-raised</code> sheet with the logo top left.</p>
+<ul><li>Number: <code>VWG.invoiceNumber(n)</code> gives &quot;0001&quot;; the counter only ever goes up, and the number appears in the order email subject too.</li><li>Head: the black disc at 72px, then the title, number, date and a status badge (<code>stock</code> for Paid).</li><li>Parties: From is Vintage Warehouse Glasgow with the company name, R and BM Logistics Limited, under it; To is the customer and the UK delivery address.</li><li>Lines: one per bag with its weight, quantity and price; delivery as its own line. Totals right-aligned with tabular numerals; the grand total in the <code>price</code> style above a 3px rule.</li><li>Foot: payment method and date, and a one-line thank you. Add the VAT number and a VAT line only if the company is VAT registered.</li><li>The same markup prints to PDF for the order email; keep it to one page.</li><li>Company address and registration number are still to come; the preview shows the slots.</li></ul></div>
+<details><summary>Preview markup</summary><pre><code class="language-html">&lt;div style=&quot;padding: var(--space-6)&quot;&gt;
+&lt;article class=&quot;vwg-invoice&quot; aria-label=&quot;Online order invoice 0001&quot;&gt;
+  &lt;div class=&quot;vwg-invoice-head&quot;&gt;
+    &lt;div&gt;
+      &lt;img src=&quot;dist/images/logo-black.png&quot; alt=&quot;Vintage Warehouse Glasgow&quot; width=&quot;72&quot; height=&quot;72&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;vwg-invoice-title&quot;&gt;
+      &lt;h1&gt;Online order invoice&lt;/h1&gt;
+      &lt;p&gt;No. 0001 · 27 October 2026&lt;/p&gt;
+      &lt;span class=&quot;vwg-badge vwg-badge-stock&quot;&gt;Paid&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;vwg-invoice-parties&quot;&gt;
+    &lt;div&gt;
+      &lt;h4&gt;From&lt;/h4&gt;
+      &lt;p&gt;&lt;strong&gt;Vintage Warehouse Glasgow&lt;/strong&gt;&lt;br&gt;R and BM Logistics Limited&lt;br&gt;Company address to be confirmed&lt;br&gt;Glasgow, Scotland&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;h4&gt;To&lt;/h4&gt;
+      &lt;p&gt;&lt;strong&gt;Customer name&lt;/strong&gt;&lt;br&gt;Delivery address line&lt;br&gt;Town&lt;br&gt;Postcode, United Kingdom&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;&lt;th&gt;Item&lt;/th&gt;&lt;th class=&quot;vwg-num&quot;&gt;Qty&lt;/th&gt;&lt;th class=&quot;vwg-num&quot;&gt;Price&lt;/th&gt;&lt;th class=&quot;vwg-num&quot;&gt;Total&lt;/th&gt;&lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;&lt;td&gt;Mixed vintage bag&lt;br&gt;&lt;span style=&quot;color: var(--ink-muted)&quot;&gt;Approx. 20 kg · mixed sizes&lt;/span&gt;&lt;/td&gt;&lt;td class=&quot;vwg-num&quot;&gt;1&lt;/td&gt;&lt;td class=&quot;vwg-num&quot;&gt;£60.00&lt;/td&gt;&lt;td class=&quot;vwg-num&quot;&gt;£60.00&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;Branded outlet bag&lt;br&gt;&lt;span style=&quot;color: var(--ink-muted)&quot;&gt;Approx. 15 kg · with tags&lt;/span&gt;&lt;/td&gt;&lt;td class=&quot;vwg-num&quot;&gt;1&lt;/td&gt;&lt;td class=&quot;vwg-num&quot;&gt;£95.00&lt;/td&gt;&lt;td class=&quot;vwg-num&quot;&gt;£95.00&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;UK delivery&lt;/td&gt;&lt;td class=&quot;vwg-num&quot;&gt;1&lt;/td&gt;&lt;td class=&quot;vwg-num&quot;&gt;£12.00&lt;/td&gt;&lt;td class=&quot;vwg-num&quot;&gt;£12.00&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+  &lt;div class=&quot;vwg-invoice-totals&quot;&gt;
+    &lt;div&gt;&lt;span&gt;Subtotal&lt;/span&gt;&lt;span&gt;£155.00&lt;/span&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;span&gt;Delivery&lt;/span&gt;&lt;span&gt;£12.00&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;vwg-grand&quot;&gt;&lt;span&gt;Total paid&lt;/span&gt;&lt;span&gt;£167.00&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;p class=&quot;vwg-invoice-foot&quot;&gt;Paid by card on 27 October 2026. Thank you for your order. Vintage Warehouse Glasgow · UK delivery only.&lt;/p&gt;
+&lt;/article&gt;
+&lt;/div&gt;</code></pre></details>
+</section>
+</main>
+</div>
+<footer class="sg-foot">Vintage Warehouse Glasgow design system · built 2026-10-27 from <code>project/</code> · <a href="https://github.com/alltimehasan/vintagewarehouseglasgow-design-system">source</a></footer>
+<script src="site.js"></script>
+</body>
+</html>

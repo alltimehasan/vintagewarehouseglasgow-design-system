@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../dist/tokens.css">
+<link rel="stylesheet" href="../dist/vwg.css">
+<script src="../dist/vwg.js"></script>
+<script>(function(){var d=document.documentElement;function set(t){if(t==='light'||t==='dark')d.setAttribute('data-theme',t);else d.removeAttribute('data-theme')}var q=new URLSearchParams(location.search).get('theme');if(q)set(q);addEventListener('message',function(e){var m=e.data;if(m&&m.type==='vwg-theme')set(m.theme)});function size(){if(parent!==window)parent.postMessage({type:'vwg-size',height:d.scrollHeight},'*')}addEventListener('load',function(){if(parent!==window)parent.postMessage({type:'vwg-ready'},'*');size();if(window.ResizeObserver)new ResizeObserver(size).observe(document.body)})})();</script>
+<title>Vintage Warehouse Glasgow</title>
+<style>
+  html, body { margin: 0; height: 100%; }
+  body { background: var(--surface); color: var(--ink); font-family: var(--font-display); overflow: hidden; }
+  .cover { position: relative; width: 960px; height: 320px; overflow: hidden; }
+  /* the top-band skeleton: the façade as a strip across the top, the name beneath it */
+  .band { position: absolute; top: 0; left: 0; width: 960px; height: 112px; }
+  .band svg { display: block; width: 960px; height: 112px; }
+  .brick { fill: var(--brick); }
+  .panel { fill: var(--surface-raised); }
+  .disc { fill: var(--ink); }
+  .door { fill: var(--blue); }
+  .window { fill: var(--surface-raised); }
+  .words { position: absolute; left: var(--space-6); right: var(--space-6); bottom: var(--space-6); }
+  .name { margin: 0; font-size: 64px; line-height: .95; font-weight: 800; letter-spacing: .01em; text-transform: uppercase; color: var(--ink); }
+  .tag { margin: var(--space-2) 0 0 2px; max-width: 440px; font-family: var(--font-body); font-size: 14px; line-height: 20px; color: var(--ink-muted); }
+</style>
+</head>
+<body>
+<div class="cover">
+<div class="band" aria-hidden="true">
+<svg viewBox="0 0 960 112" width="960" height="112">
+<!--
+  blocks      brick 960×112, the full-width band (the warehouse wall, the brand's own building) · surface-raised 144×112 panel (space-24 + space-12 wide) cut into the brick near the right · ink disc ⌀80 (space-16 + space-4) on the panel · blue 24×32 (space-6 × space-8) door at the panel's foot, left, as in the photo — the band is about a third of 960×320
+  arrangement the façade as one strip across the top: the top-band skeleton, because "Warehouse Glasgow" runs wider than 440px even at 64px; the panel and disc sit right of centre so the eye lands on the disc
+  pattern     discs, from "Round only what is a disc or a pill" and the sign, the bale labels and the round warehouse windows: seven surface-raised round windows ⌀24 (space-6) along the brick at a space-24 pitch, the ink disc the largest of them; a generic bold-caps system would take stripes, so the disc row is the one that is only this brand
+  scales      pitch space-24; panel width space-24 + space-12; door space-6 × space-8; disc and windows rx = half the diameter (radius-full); panel and door square (radius-none); name inset space-6, tagline space-2 under it
+-->
+<rect class="brick" x="0" y="0" width="960" height="112"/>
+<circle class="window" cx="80" cy="44" r="12"/>
+<circle class="window" cx="176" cy="44" r="12"/>
+<circle class="window" cx="272" cy="44" r="12"/>
+<circle class="window" cx="368" cy="44" r="12"/>
+<circle class="window" cx="464" cy="44" r="12"/>
+<rect class="panel" x="576" y="0" width="144" height="112"/>
+<circle class="disc" cx="648" cy="52" r="40"/>
+<rect class="door" x="592" y="80" width="24" height="32"/>
+<circle class="window" cx="816" cy="44" r="12"/>
+<circle class="window" cx="912" cy="44" r="12"/>
+</svg>
+</div>
+<div class="words">
+<h1 class="name">Vintage Warehouse<br>Glasgow</h1>
+<p class="tag">New and secondhand clothing, sold by the bag.</p>
+</div>
+</div>
+</body>
+</html>

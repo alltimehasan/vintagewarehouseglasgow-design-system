@@ -1,0 +1,39 @@
+{
+  "v": 3,
+  "layout": "files",
+  "createdOnFiles": { "v": 1, "at": "2026-10-27T19:40:00Z" },
+  "title": "Vintage Warehouse Glasgow",
+  "namespace": "VWG",
+  "libraries": [],
+  "sections": {},
+  "groups": ["Logos", "Photos"],
+  "assetGroups": {
+    "Logos": {
+      "name": "Logos",
+      "tile": "m",
+      "order": ["logo-black.png", "logo-white.png", "icon-512.png", "icon-192.png", "icon-180.png", "icon-64.png", "icon-32.png"],
+      "files": {
+        "logo-black.png": { "name": "logo-black.png", "blob": "fe320804d013834cc90c78cce6347da7", "size": 112259, "type": "image/png" },
+        "logo-white.png": { "name": "logo-white.png", "blob": "0d3a3c72e834c1203cc269d12e54ddf4", "size": 115416, "type": "image/png" },
+        "icon-512.png": { "name": "icon-512.png", "blob": "c18216f4098383d0c3b71bb81e8d4ce2", "size": 140945, "type": "image/png" },
+        "icon-192.png": { "name": "icon-192.png", "blob": "c63e3044601a7f2f76dcef4994d4c220", "size": 27351, "type": "image/png" },
+        "icon-180.png": { "name": "icon-180.png", "blob": "9137e0a1632d9844f2dfaf5da62aca61", "size": 24604, "type": "image/png" },
+        "icon-64.png": { "name": "icon-64.png", "blob": "fc79f2169d9621f4253e535b8db87d12", "size": 6732, "type": "image/png" },
+        "icon-32.png": { "name": "icon-32.png", "blob": "dd15b5fd3ab53bd03a063e7f792274a7", "size": 2553, "type": "image/png" }
+      }
+    },
+    "Photos": {
+      "name": "Photos",
+      "tile": "l",
+      "order": ["warehouse-exterior.jpg", "pick-and-choose-area.jpg", "clothing-bales.jpg"],
+      "files": {
+        "warehouse-exterior.jpg": { "name": "warehouse-exterior.jpg", "blob": "fb4bc215818cb90204771986f733c819", "size": 688704, "type": "image/jpeg" },
+        "pick-and-choose-area.jpg": { "name": "pick-and-choose-area.jpg", "blob": "e0dbebc9b5d1c003b645c344857e8a22", "size": 391364, "type": "image/jpeg" },
+        "clothing-bales.jpg": { "name": "clothing-bales.jpg", "blob": "2415ab446fded8dbda175d6c5c6ab8e8", "size": 327765, "type": "image/jpeg" }
+      }
+    }
+  },
+  "blobs": {},
+  "docs": { "readme": "project/README.md", "sections": [] },
+  "lastChange": { "by": "Hasan", "at": "2026-10-27T19:40:00Z", "via": "Claude Code", "note": "First version, built from the logo and shop photos Alexandra sent." }
+}
