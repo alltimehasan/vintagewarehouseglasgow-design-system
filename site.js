@@ -21,8 +21,10 @@
       b.setAttribute('aria-pressed', String(b.getAttribute('data-theme-choice') === choice));
     });
     document.querySelectorAll('a.sg-open').forEach(function (a) {
-      var base = a.getAttribute('href').split('?')[0];
-      a.setAttribute('href', choice === 'system' ? base : base + '?theme=' + choice);
+      var parts = a.getAttribute('href').split('?');
+      var params = (parts[1] || '').split('&').filter(function (p) { return p && p.indexOf('theme=') !== 0; });
+      if (choice !== 'system') params.push('theme=' + choice);
+      a.setAttribute('href', parts[0] + (params.length ? '?' + params.join('&') : ''));
     });
     frames().forEach(send);
   }

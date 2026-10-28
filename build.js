@@ -11,6 +11,7 @@
 */
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 const ROOT = __dirname;
 const SRC = path.join(ROOT, 'project');
@@ -28,6 +29,10 @@ const tokens = JSON.parse(read('tokens.json'));
 const index = JSON.parse(read('design-system.json'));
 const TITLE = index.title;
 const BUILT = new Date().toISOString().slice(0, 10);
+const VERSION = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8')).version;
+/* Cache-busting: every stylesheet, script and preview link carries ?v=<version>-<content hash>, so a change shows up
+   in the browser without clearing its cache. The hash comes from the built file, so it changes exactly when the file does. */
+const stamp = (file) => `?v=${VERSION}-${crypto.createHash('sha1').update(fs.readFileSync(path.join(ROOT, file))).digest('hex').slice(0, 8)}`;
 
 /* ---------- 1. dist: assets, fonts, the two bundles, the generated tokens.css ---------- */
 fs.rmSync(DIST, { recursive: true, force: true });
@@ -136,13 +141,13 @@ function parseMarker(html) {
 }
 function buildPreview(name) {
   const { marker, doc } = parseMarker(read(`components/${name}/preview.html`));
-  const head = `\n<link rel="stylesheet" href="../dist/tokens.css">\n<link rel="stylesheet" href="../dist/vwg.css">\n<script src="../dist/vwg.js"></script>\n<script>${THEME_SYNC}</script>`;
+  const head = `\n<link rel="stylesheet" href="../dist/tokens.css${stamp('dist/tokens.css')}">\n<link rel="stylesheet" href="../dist/vwg.css${stamp('dist/vwg.css')}">\n<script src="../dist/vwg.js${stamp('dist/vwg.js')}"></script>\n<script>${THEME_SYNC}</script>`;
   let page = relBlobs(doc, '../');
   page = /<meta charset="utf-8">/i.test(page) ? page.replace(/<meta charset="utf-8">/i, (m) => m + head) : page.replace(/<head>/i, (m) => m + head);
   write(path.join(PREVIEWS, `${name}.html`), page);
   const body = /<body[^>]*>([\s\S]*?)<\/body>/i.exec(doc);
   const source = body ? relBlobs(body[1], '').replace(/^\n+|\n+$/g, '') : '';
-  return { marker, source };
+  return { marker, source, href: `previews/${name}.html${stamp(`previews/${name}.html`)}` };
 }
 
 /* ---------- 4. the pages ---------- */
@@ -170,8 +175,8 @@ function page({ file, title, eyebrow, intro, body }) {
 <link rel="icon" href="dist/images/icon-32.png" sizes="32x32">
 <link rel="icon" href="dist/images/icon-192.png" sizes="192x192">
 <link rel="apple-touch-icon" href="dist/images/icon-180.png">
-<link rel="stylesheet" href="dist/tokens.css">
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="dist/tokens.css${stamp('dist/tokens.css')}">
+<link rel="stylesheet" href="site.css${stamp('site.css')}">
 <script>${THEME_BOOT}</script>
 </head>
 <body>
@@ -201,8 +206,8 @@ ${nav}
 ${body}
 </main>
 </div>
-<footer class="sg-foot">${esc(TITLE)} design system · built ${BUILT} from <code>project/</code> · <a href="https://github.com/alltimehasan/vintagewarehouseglasgow-design-system">source</a></footer>
-<script src="site.js"></script>
+<footer class="sg-foot">${esc(TITLE)} design system · v${VERSION} · built ${BUILT} from <code>project/</code> · <a href="https://github.com/alltimehasan/vintagewarehouseglasgow-design-system">source</a></footer>
+<script src="site.js${stamp('site.js')}"></script>
 </body>
 </html>
 `;
@@ -226,12 +231,13 @@ const preview = (src, title, w, h, extra = '') => `<div class="sg-preview" data-
 <li><code>dist/fonts/</code> — the three typefaces, self-hosted.</li>
 <li><code>dist/images/</code> — logos, favicons and the shop photos.</li>
 <li><code>project/</code> — the source: tokens, brand book, component guidelines and previews. Edit there and run <code>node build.js</code>.</li>
+<li>Version the three links on the live site (<code>vwg.css?v=…</code>), as this guide does with a content hash, so a change shows without clearing the browser cache.</li>
 </ul>
 </section>`;
   write(path.join(ROOT, 'index.html'), page({
     file: 'index.html', title: 'Brand book', eyebrow: 'Overview',
     intro: 'How the brand looks and reads, and the rules for building the website from it.',
-    body: `${preview('previews/Cover.html', 'Cover', 960, +cover.marker.height || 320)}\n<article class="sg-prose">${readme}</article>${files}`,
+    body: `${preview(cover.href, 'Cover', 960, +cover.marker.height || 320)}\n<article class="sg-prose">${readme}</article>${files}`,
   }));
 }
 
@@ -326,7 +332,7 @@ ${groups}`,
   const toc = [];
   for (const name of order) {
     if (!exists(`components/${name}/preview.html`)) continue;
-    const { marker, source } = buildPreview(name);
+    const { marker, source, href } = buildPreview(name);
     const guide = exists(`components/${name}/README.md`) ? md(read(`components/${name}/README.md`)) : '';
     const w = +marker.width || 960;
     const h = +marker.height || 120;
@@ -334,8 +340,8 @@ ${groups}`,
     sections.push(`
 <section class="sg-component" id="${slug(name)}">
 <header><span class="sg-eyebrow">${esc(marker.group || 'Component')}</span><h2>${esc(name)}</h2></header>
-${preview(`previews/${name}.html`, `${name} preview`, w, h, 'loading="lazy"')}
-<div class="sg-preview-bar"><span>Live preview, ${w}px layout, follows the theme switch.</span><a class="sg-open" href="previews/${name}.html" target="_blank" rel="noopener">Open in a new tab</a></div>
+${preview(href, `${name} preview`, w, h, 'loading="lazy"')}
+<div class="sg-preview-bar"><span>Live preview, ${w}px layout, follows the theme switch.</span><a class="sg-open" href="${href}" target="_blank" rel="noopener">Open in a new tab</a></div>
 <div class="sg-prose">${guide}</div>
 <details><summary>Preview markup</summary><pre><code class="language-html">${esc(source)}</code></pre></details>
 </section>`);

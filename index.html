@@ -8,8 +8,8 @@
 <link rel="icon" href="dist/images/icon-32.png" sizes="32x32">
 <link rel="icon" href="dist/images/icon-192.png" sizes="192x192">
 <link rel="apple-touch-icon" href="dist/images/icon-180.png">
-<link rel="stylesheet" href="dist/tokens.css">
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="dist/tokens.css?v=1.1.0-b87c207e">
+<link rel="stylesheet" href="site.css?v=1.1.0-668230ef">
 <script>try{var t=localStorage.getItem('vwg-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 </head>
 <body>
@@ -41,7 +41,7 @@
   <h1>Brand book</h1>
   <p>How the brand looks and reads, and the rules for building the website from it.</p>
 </div>
-<div class="sg-preview" data-width="960" data-height="320"><iframe src="previews/Cover.html" title="Cover" width="960" height="320" ></iframe></div>
+<div class="sg-preview" data-width="960" data-height="320"><iframe src="previews/Cover.html?v=1.1.0-3ef1a76d" title="Cover" width="960" height="320" ></iframe></div>
 <article class="sg-prose"><p>Vintage Warehouse Glasgow sells new outlet stock and secondhand clothing by the bag, from a red-brick warehouse in Glasgow: in person from the pick-and-choose area, and online with UK delivery only. The look comes from the building and the sign. A black disc on a white panel, brick all round, blue container doors, and the hanger script. Keep it that plain: black, white, one brick accent, bold uppercase headings, a script word or two. Then a few vintage touches, used sparingly: a rubber stamp, a swing tag, a ledger rule, paper grain, a brick strip.</p>
 <h2 id="words">Words</h2>
 <ul><li>Write the name as Vintage Warehouse Glasgow in running text; <code>hero</code>, <code>h1</code>, <code>h2</code> and <code>eyebrow</code> set it uppercase, as the ring on the logo does. Never shorten it for customers. The legal entity, R and BM Logistics Limited, appears on invoices only.</li><li>Plain, warm, short. Sentence case for everything that is not a display style. No exclamation marks. No emoji on the site.</li><li>The product is a <strong>bag</strong>: &quot;Mixed vintage bag&quot;, &quot;Branded outlet bag&quot;. Give the weight and an approximate piece count on every product: &quot;Approx. 20 kg · 60–80 pieces&quot;.</li><li>Put &quot;UK delivery only&quot; beside every price and in the footer. The shop does not ship anywhere else.</li><li>Label every product Vintage or New with a <code>Badge</code>. The two kinds of stock are the point of the shop.</li><li>The address is Bay E, Barclay Curle Complex, South Street, Glasgow G14 0BX. Two lines, in that order, on the Find us block, in the footer and on invoices.</li><li>Write hours as &quot;Mon–Fri 10am–5pm · Sat 10am–3pm · Sun closed&quot;, with an en dash. Sunday is closed for now; keep the row.</li><li>Buttons are verbs: &quot;Shop online&quot;, &quot;Add to basket&quot;, &quot;Get directions&quot;, &quot;Send message&quot;. The one action a page is for gets the primary button; everything else is outline or a link.</li><li>Invoices are titled &quot;Online order invoice&quot; and numbered with four digits in sequence (0001, 0002 …), never reused.</li><li>The company is VAT registered. Every price on the site includes VAT; the invoice shows the registered office, the company number SC769949, the VAT number and the VAT included in the total.</li></ul>
@@ -76,11 +76,12 @@
 <li><code>dist/fonts/</code> — the three typefaces, self-hosted.</li>
 <li><code>dist/images/</code> — logos, favicons and the shop photos.</li>
 <li><code>project/</code> — the source: tokens, brand book, component guidelines and previews. Edit there and run <code>node build.js</code>.</li>
+<li>Version the three links on the live site (<code>vwg.css?v=…</code>), as this guide does with a content hash, so a change shows without clearing the browser cache.</li>
 </ul>
 </section>
 </main>
 </div>
-<footer class="sg-foot">Vintage Warehouse Glasgow design system · built 2026-10-28 from <code>project/</code> · <a href="https://github.com/alltimehasan/vintagewarehouseglasgow-design-system">source</a></footer>
-<script src="site.js"></script>
+<footer class="sg-foot">Vintage Warehouse Glasgow design system · v1.1.0 · built 2026-10-28 from <code>project/</code> · <a href="https://github.com/alltimehasan/vintagewarehouseglasgow-design-system">source</a></footer>
+<script src="site.js?v=1.1.0-1177ede0"></script>
 </body>
 </html>
