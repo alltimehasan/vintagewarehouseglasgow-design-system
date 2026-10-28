@@ -11,7 +11,7 @@ Vintage Warehouse Glasgow sells new outlet stock and secondhand clothing by the 
 - Write hours as "Mon–Fri 10am–5pm · Sat 10am–3pm · Sun closed", with an en dash. Sunday is closed for now; keep the row.
 - Buttons are verbs: "Shop online", "Add to basket", "Get directions", "Send message". The one action a page is for gets the primary button; everything else is outline or a link.
 - Invoices are titled "Online order invoice" and numbered with four digits in sequence (0001, 0002 …), never reused.
-- The company is VAT registered. Every price on the site includes VAT; the invoice shows the registered office, the company number SC769949, the VAT number and the VAT included in the total.
+- The company is VAT registered. Every price on the site includes VAT; the invoice shows the registered office, the company number SC769949, the VAT number GB 522 8334 04 and the VAT included in the total.
 
 ## Colour
 
