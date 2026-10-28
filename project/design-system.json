@@ -35,5 +35,5 @@
   },
   "blobs": {},
   "docs": { "readme": "project/README.md", "sections": [] },
-  "lastChange": { "by": "the developer", "at": "2026-10-28T12:00:00Z", "via": "Claude Code", "note": "Address, hours and VAT details from the client; a kit of vintage touches: stamp, swing tag, ledger rule, aged photo, paper grain, strip." }
+  "lastChange": { "by": "the developer", "at": "2026-10-28T13:00:00Z", "via": "Claude Code", "note": "Product card: the price tag and the Add to basket button share one baseline; tag now 36px, the button's height." }
 }

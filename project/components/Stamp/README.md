@@ -13,5 +13,5 @@ A rubber-stamp label: one or two uppercase words inside a double line, tilted a 
 - `vwg-stamp-lg` is the big one, tilted 12°, across a sold-out photo with `vwg-card-stamp-lg`. On a photo the small stamp sits top left with `vwg-card-stamp`.
 - The stamp has a `surface-raised` ground so it reads on any photo in both themes. Never put one on `band`.
 - The `Badge` pill stays for tables, filters and lists; a tilted stamp in a table row looks like a mistake.
-- The price tag: brick on brick-soft with a punched hole and a pointed end, 32px tall, tabular numerals. Product cards and the basket only; invoice lines and totals stay plain.
+- The price tag: brick on brick-soft with a punched hole and a pointed end, 36px tall, the height of the small button beside it, tabular numerals. Product cards and the basket only; invoice lines and totals stay plain.
 - From JavaScript: `VWG.Stamp({ label, tone, size })`.

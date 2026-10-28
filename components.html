@@ -97,7 +97,7 @@
 &lt;span class=&quot;vwg-stamp vwg-stamp-sold vwg-stamp-lg&quot;&gt;Sold out&lt;/span&gt;
 
 &lt;p class=&quot;vwg-price&quot;&gt;&lt;span class=&quot;vwg-tag&quot;&gt;£60.00&lt;/span&gt; &lt;small&gt;UK delivery only&lt;/small&gt;&lt;/p&gt;</code></pre>
-<ul><li>Tones: brick by default (Vintage), <code>vwg-stamp-new</code> (blue), <code>vwg-stamp-stock</code> (Paid), <code>vwg-stamp-sold</code> (danger). The word carries the meaning; the colour repeats it.</li><li><code>vwg-stamp-lg</code> is the big one, tilted 12°, across a sold-out photo with <code>vwg-card-stamp-lg</code>. On a photo the small stamp sits top left with <code>vwg-card-stamp</code>.</li><li>The stamp has a <code>surface-raised</code> ground so it reads on any photo in both themes. Never put one on <code>band</code>.</li><li>The <code>Badge</code> pill stays for tables, filters and lists; a tilted stamp in a table row looks like a mistake.</li><li>The price tag: brick on brick-soft with a punched hole and a pointed end, 32px tall, tabular numerals. Product cards and the basket only; invoice lines and totals stay plain.</li><li>From JavaScript: <code>VWG.Stamp({ label, tone, size })</code>.</li></ul></div>
+<ul><li>Tones: brick by default (Vintage), <code>vwg-stamp-new</code> (blue), <code>vwg-stamp-stock</code> (Paid), <code>vwg-stamp-sold</code> (danger). The word carries the meaning; the colour repeats it.</li><li><code>vwg-stamp-lg</code> is the big one, tilted 12°, across a sold-out photo with <code>vwg-card-stamp-lg</code>. On a photo the small stamp sits top left with <code>vwg-card-stamp</code>.</li><li>The stamp has a <code>surface-raised</code> ground so it reads on any photo in both themes. Never put one on <code>band</code>.</li><li>The <code>Badge</code> pill stays for tables, filters and lists; a tilted stamp in a table row looks like a mistake.</li><li>The price tag: brick on brick-soft with a punched hole and a pointed end, 36px tall, the height of the small button beside it, tabular numerals. Product cards and the basket only; invoice lines and totals stay plain.</li><li>From JavaScript: <code>VWG.Stamp({ label, tone, size })</code>.</li></ul></div>
 <details><summary>Preview markup</summary><pre><code class="language-html">&lt;div class=&quot;vwg-row&quot; style=&quot;gap: var(--space-8); padding: var(--space-6)&quot;&gt;
   &lt;span class=&quot;vwg-stamp&quot;&gt;Vintage&lt;/span&gt;
   &lt;span class=&quot;vwg-stamp vwg-stamp-new&quot;&gt;New&lt;/span&gt;
@@ -110,8 +110,8 @@
 
 <section class="sg-component" id="productcard">
 <header><span class="sg-eyebrow">Shop</span><h2>ProductCard</h2></header>
-<div class="sg-preview" data-width="960" data-height="580"><iframe src="previews/ProductCard.html" title="ProductCard preview" width="960" height="580" loading="lazy"></iframe></div>
-<div class="sg-preview-bar"><span>Live preview, 960px layout, follows the theme switch.</span><a class="sg-open" href="previews/ProductCard.html" target="_blank" rel="noopener">Open in a new tab</a></div>
+<div class="sg-preview" data-width="1100" data-height="640"><iframe src="previews/ProductCard.html" title="ProductCard preview" width="1100" height="640" loading="lazy"></iframe></div>
+<div class="sg-preview-bar"><span>Live preview, 1100px layout, follows the theme switch.</span><a class="sg-open" href="previews/ProductCard.html" target="_blank" rel="noopener">Open in a new tab</a></div>
 <div class="sg-prose"><p>A bag for sale: photo with its Vintage or New stamp, name, weight and piece count, the price on a swing tag with &quot;UK delivery only&quot; under it, and Add to basket. The shop has about six of these, in a <code>vwg-grid</code>.</p>
 <pre><code class="language-html">&lt;article class=&quot;vwg-card&quot;&gt;
   &lt;a class=&quot;vwg-card-media&quot; href=&quot;/shop/mixed-vintage-bag&quot;&gt;
