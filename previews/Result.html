@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8">
+<link rel="stylesheet" href="../dist/tokens.css?v=1.2.0-b87c207e">
+<link rel="stylesheet" href="../dist/vwg.css?v=1.2.0-c561fc57">
+<script src="../dist/vwg.js?v=1.2.0-116c56a0"></script>
+<script>(function(){var d=document.documentElement;function set(t){if(t==='light'||t==='dark')d.setAttribute('data-theme',t);else d.removeAttribute('data-theme')}var q=new URLSearchParams(location.search).get('theme');if(q)set(q);addEventListener('message',function(e){var m=e.data;if(m&&m.type==='vwg-theme')set(m.theme)});function size(){if(parent!==window)parent.postMessage({type:'vwg-size',height:d.scrollHeight},'*')}addEventListener('load',function(){if(parent!==window)parent.postMessage({type:'vwg-ready'},'*');size();if(window.ResizeObserver)new ResizeObserver(size).observe(document.body)})})();</script><title>Result — preview</title></head>
+<body class="vwg-paper">
+<div class="vwg-container" style="padding-top: var(--space-6); padding-bottom: var(--space-6)">
+  <div class="vwg-result">
+    <span class="vwg-stamp vwg-stamp-stock vwg-stamp-lg">Paid</span>
+    <h1>Thank you for your order</h1>
+    <p>Order 0001 is paid. Your invoice is on its way to name@example.com, and your bag will be posted within two working days.</p>
+    <div class="vwg-result-actions">
+      <a class="vwg-btn vwg-btn-primary" href="#">View invoice</a>
+      <a class="vwg-btn vwg-btn-outline" href="#">Shop online</a>
+    </div>
+  </div>
+  <div style="border-top: 1px solid var(--line); margin: var(--space-6) 0" aria-hidden="true"></div>
+  <div class="vwg-result">
+    <span class="vwg-stamp vwg-stamp-lg">Not found</span>
+    <h1>Page not found</h1>
+    <p>The page may have moved, or the bag may have sold. The shop is one click away.</p>
+    <div class="vwg-result-actions">
+      <a class="vwg-btn vwg-btn-primary" href="#">Shop online</a>
+      <a class="vwg-btn vwg-btn-outline" href="#">Find us</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

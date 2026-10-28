@@ -1,7 +1,7 @@
 /* Vintage Warehouse Glasgow — component styles. Every colour, size and face comes from tokens.css. Prefix: vwg- */
 *, *::before, *::after { box-sizing: border-box; }
 body { margin: 0; font-family: var(--font-body); font-size: 17px; line-height: 26px; background: var(--surface); color: var(--ink); -webkit-font-smoothing: antialiased; }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 a { color: var(--link); }
 h1, h2, h3, h4 { text-wrap: balance; }
 
@@ -11,6 +11,31 @@ h1, h2, h3, h4 { text-wrap: balance; }
 .vwg-row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; padding: var(--space-4); }
 .vwg-band { background: var(--band); color: var(--on-band); }
 .vwg-grid { display: grid; gap: var(--space-6); grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+
+/* Page rhythm: consecutive sections share one gap (space-16, space-12 on phones); a band section keeps its own padding */
+.vwg-section { padding-top: var(--space-12); padding-bottom: var(--space-12); }
+.vwg-section + .vwg-section { padding-top: 0; }
+.vwg-section.vwg-band, .vwg-band + .vwg-section { padding-top: var(--space-12); }
+@media (min-width: 760px) {
+  .vwg-section { padding-top: var(--space-16); padding-bottom: var(--space-16); }
+  .vwg-section.vwg-band, .vwg-band + .vwg-section { padding-top: var(--space-16); }
+}
+.vwg-section > .vwg-container > .vwg-section-heading, .vwg-section > .vwg-container > .vwg-page-title { margin-bottom: var(--space-8); }
+
+/* Skip link: first in body, shown on keyboard focus */
+.vwg-skip { position: absolute; top: -100px; left: var(--space-4); z-index: 100; padding: var(--space-3) var(--space-4); border: 2px solid var(--ink); border-radius: var(--radius-sm); background: var(--ink); color: var(--surface); font-family: var(--font-display); font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; }
+.vwg-skip:focus { top: var(--space-4); outline: 2px solid transparent; box-shadow: var(--focus-ring); }
+
+/* The ledger rule on its own, the page title over it, the product title (sentence case), the delivery line beside a price */
+.vwg-rule { width: 48px; height: 6px; border-top: 3px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.vwg-band .vwg-rule { border-color: var(--on-band); }
+.vwg-page-title { display: grid; gap: var(--space-1); max-width: 720px; }
+.vwg-page-title h1 { margin: 0; font-family: var(--font-display); font-size: 40px; line-height: 44px; font-weight: 800; letter-spacing: 0.01em; text-transform: uppercase; }
+.vwg-page-title .vwg-rule { margin-top: var(--space-2); }
+.vwg-page-title p { margin: var(--space-2) 0 0; font-size: 20px; line-height: 30px; color: var(--ink-muted); max-width: 60ch; }
+@media (max-width: 599px) { .vwg-page-title h1 { font-size: 32px; line-height: 36px; } .vwg-page-title p { font-size: 17px; line-height: 26px; } }
+.vwg-product-title { margin: 0; font-family: var(--font-display); font-size: 28px; line-height: 34px; font-weight: 800; letter-spacing: 0; }
+.vwg-delivery { display: block; margin: 0; font-family: var(--font-body); font-size: 14px; line-height: 20px; font-weight: 400; letter-spacing: 0; color: var(--ink-muted); font-variant-numeric: tabular-nums; }
 
 /* The logo swaps with the theme: black disc on light, white disc on dark */
 .vwg-logo-dark { display: none; }
@@ -87,6 +112,7 @@ textarea.vwg-input { min-height: 128px; resize: vertical; }
 .vwg-field-error .vwg-input { border-color: var(--danger); }
 .vwg-field-error .vwg-field-hint { color: var(--danger); }
 .vwg-form { display: grid; gap: var(--space-4); max-width: 560px; }
+.vwg-input[aria-invalid="true"] { border-color: var(--danger); }
 
 /* Site header */
 .vwg-header { background: var(--surface-raised); border-bottom: 1px solid var(--line); color: var(--ink); }
@@ -105,6 +131,17 @@ textarea.vwg-input { min-height: 128px; resize: vertical; }
 @media (max-width: 759px) {
   .vwg-nav { display: none; }
   .vwg-menu-btn { display: inline-flex; }
+}
+/* The phone menu: the Menu button opens nav#menu as a panel under the header; VWG.menu(header) sets data-menu-open and aria-expanded */
+.vwg-menu-btn[aria-expanded="true"] .vwg-menu-icon-open, .vwg-menu-icon-close { display: none; }
+.vwg-menu-btn[aria-expanded="true"] .vwg-menu-icon-close { display: block; }
+@media (max-width: 759px) {
+  .vwg-header { position: relative; }
+  .vwg-header[data-menu-open] .vwg-nav { display: grid; position: absolute; top: 100%; left: 0; right: 0; z-index: 10; gap: 0; margin: 0; padding: var(--space-2) 0; background: var(--surface-raised); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); box-shadow: var(--shadow-drawer); }
+  .vwg-header[data-menu-open] .vwg-nav a { display: flex; align-items: center; min-height: 48px; padding: var(--space-3) max(var(--space-4), env(safe-area-inset-right, 0px)) var(--space-3) max(var(--space-4), env(safe-area-inset-left, 0px)); border-bottom: 0; border-left: 3px solid transparent; }
+  .vwg-header[data-menu-open] .vwg-nav a:hover { border-left-color: var(--ink); background: var(--surface); }
+  .vwg-header[data-menu-open] .vwg-nav a[aria-current="page"] { border-left-color: var(--brick); color: var(--brick); }
+  .vwg-header[data-menu-open] .vwg-nav a:focus-visible { box-shadow: inset 0 0 0 2px var(--surface-raised), inset 0 0 0 4px var(--brick); }
 }
 
 /* Hero */
@@ -132,7 +169,7 @@ textarea.vwg-input { min-height: 128px; resize: vertical; }
 .vwg-hours address { margin: 0 0 var(--space-4); font-style: normal; }
 .vwg-hours table { width: 100%; border-collapse: collapse; }
 .vwg-hours td { padding: var(--space-2) 0; border-bottom: 1px solid var(--line); vertical-align: top; }
-.vwg-hours td:first-child { font-weight: 600; }
+.vwg-hours td:first-child { font-weight: 600; padding-right: var(--space-3); }
 .vwg-hours td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
 .vwg-hours tr:last-child td { border-bottom: 0; }
 .vwg-hours .vwg-closed { color: var(--ink-muted); }
@@ -151,6 +188,9 @@ textarea.vwg-input { min-height: 128px; resize: vertical; }
 .vwg-footer-bottom a { color: var(--on-band); }
 @media (max-width: 759px) { .vwg-footer-inner { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 479px) { .vwg-footer-inner { grid-template-columns: 1fr; } }
+.vwg-footer-legal { padding-top: var(--space-4); padding-bottom: var(--space-4); border-top: 1px solid var(--line-on-band); font-size: 14px; line-height: 20px; color: var(--on-band-muted); }
+.vwg-footer-legal p { margin: 0; max-width: 65ch; }
+.vwg-footer-legal p + p { margin-top: var(--space-1); }
 
 /* Invoice */
 .vwg-invoice { max-width: 760px; padding: var(--space-8); background: var(--surface-raised); color: var(--ink); border: 1px solid var(--line); font-size: 14px; line-height: 20px; }
@@ -179,6 +219,148 @@ textarea.vwg-input { min-height: 128px; resize: vertical; }
   .vwg-invoice-parties { grid-template-columns: 1fr; }
   .vwg-invoice-totals { width: 100%; }
 }
+
+/* Prose: markdown content (the privacy, terms and delivery pages, product descriptions), 65 characters wide */
+.vwg-prose { max-width: 65ch; }
+.vwg-prose > :first-child { margin-top: 0; }
+.vwg-prose > :last-child { margin-bottom: 0; }
+.vwg-prose h2 { margin: var(--space-12) 0 var(--space-4); font-family: var(--font-display); font-size: 28px; line-height: 34px; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; }
+.vwg-prose h2::after { content: ""; display: block; width: 48px; height: 6px; margin-top: var(--space-3); border-top: 3px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.vwg-prose h3 { margin: var(--space-8) 0 var(--space-2); font-family: var(--font-display); font-size: 18px; line-height: 24px; font-weight: 700; }
+.vwg-prose h4 { margin: var(--space-6) 0 var(--space-2); font-family: var(--font-display); font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted); }
+.vwg-prose p, .vwg-prose ul, .vwg-prose ol, .vwg-prose blockquote, .vwg-prose table, .vwg-prose figure, .vwg-prose img { margin: 0 0 var(--space-4); }
+.vwg-prose ul, .vwg-prose ol { padding-left: 1.25em; }
+.vwg-prose li + li { margin-top: var(--space-1); }
+.vwg-prose a { color: var(--link); text-underline-offset: 3px; }
+.vwg-prose a:hover { color: var(--ink); }
+.vwg-prose strong { font-weight: 600; }
+.vwg-prose blockquote { padding: var(--space-2) var(--space-4); border-left: 3px solid var(--brick); color: var(--ink-muted); }
+.vwg-prose blockquote p:last-child { margin-bottom: 0; }
+.vwg-prose table { width: 100%; border-collapse: collapse; }
+.vwg-prose th { padding: var(--space-2) var(--space-4) var(--space-2) 0; border-bottom: 1px solid var(--ink); text-align: left; font-family: var(--font-display); font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted); }
+.vwg-prose td { padding: var(--space-2) var(--space-4) var(--space-2) 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+.vwg-prose figure { padding: 0; }
+.vwg-prose img { max-width: 100%; height: auto; }
+.vwg-prose figure img { margin: 0; }
+.vwg-prose figcaption { margin-top: var(--space-2); font-size: 14px; line-height: 20px; color: var(--ink-muted); }
+.vwg-prose hr { margin: var(--space-8) 0; border: 0; border-top: 1px solid var(--line); }
+
+/* Notice: one sentence beside its colour, square, a 1px border, an optional close button */
+.vwg-notice { display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-3) var(--space-4); border: 1px solid var(--line-strong); border-radius: var(--radius-none); background: var(--surface-raised); color: var(--ink); }
+.vwg-notice > p { flex: 1 1 auto; margin: 0; }
+.vwg-notice a { color: inherit; }
+.vwg-notice-stock { border-color: var(--stock); background: var(--stock-soft); color: var(--stock); }
+.vwg-notice-danger { border-color: var(--danger); background: var(--danger-soft); color: var(--danger); }
+.vwg-notice-info { border-color: var(--blue); background: var(--blue-soft); color: var(--blue); }
+.vwg-notice-close { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; margin: -3px -8px -3px auto; padding: 0; border: 1px solid transparent; border-radius: var(--radius-sm); background: transparent; color: inherit; cursor: pointer; }
+.vwg-notice-close svg { width: 24px; height: 24px; }
+.vwg-notice-close:hover { border-color: currentColor; }
+
+/* Empty state: a script lead-in, one sentence, one button */
+.vwg-empty { display: grid; gap: var(--space-2); justify-items: center; padding: var(--space-12) var(--space-4); border: 1px solid var(--line); background: var(--surface-raised); text-align: center; }
+.vwg-empty p { margin: 0; max-width: 40ch; font-size: 20px; line-height: 30px; }
+.vwg-empty .vwg-btn { margin-top: var(--space-3); }
+
+/* Lines: the basket rows and the order summary (the invoice keeps its own table) */
+.vwg-lines { width: 100%; border-collapse: collapse; }
+.vwg-lines th { padding: var(--space-2) 0; border-bottom: 1px solid var(--ink); text-align: left; font-family: var(--font-display); font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted); }
+.vwg-lines td { padding: var(--space-4) 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+.vwg-lines th + th, .vwg-lines td + td { padding-left: var(--space-4); }
+.vwg-lines .vwg-num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.vwg-lines td.vwg-num { font-weight: 600; }
+.vwg-lines-item { display: flex; gap: var(--space-4); align-items: flex-start; }
+.vwg-lines-thumb { flex: none; display: block; width: 64px; height: 80px; background: var(--line); }
+.vwg-lines-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.vwg-lines-name { display: block; margin: 0; font-family: var(--font-display); font-size: 18px; line-height: 24px; font-weight: 700; color: var(--ink); text-decoration: none; }
+.vwg-lines-name:hover { color: var(--brick); }
+.vwg-lines-meta { display: block; margin: var(--space-1) 0 0; font-size: 14px; line-height: 20px; color: var(--ink-muted); }
+.vwg-lines-item .vwg-price { margin-top: var(--space-2); }
+.vwg-lines-item .vwg-btn-link { margin-top: var(--space-2); font-size: 12px; }
+@media (max-width: 599px) {
+  .vwg-lines, .vwg-lines tbody { display: block; }
+  .vwg-lines thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .vwg-lines tr { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: var(--space-3) var(--space-4); padding: var(--space-4) 0; border-bottom: 1px solid var(--line); }
+  .vwg-lines td { display: block; padding: 0; border: 0; }
+  .vwg-lines td + td { padding-left: 0; }
+  .vwg-lines td:first-child { grid-column: 1 / -1; }
+}
+
+/* Totals: plain rows with tabular numerals; the grand total in the price style over a plain 2px rule (the thick-thin rule is the invoice's) */
+.vwg-totals { display: grid; gap: var(--space-2); width: 100%; max-width: 320px; margin: 0 0 0 auto; padding-top: var(--space-4); }
+.vwg-totals > div { display: flex; justify-content: space-between; gap: var(--space-4); font-variant-numeric: tabular-nums; }
+.vwg-totals .vwg-grand { margin-top: var(--space-1); padding-top: var(--space-3); border-top: 2px solid var(--ink); font-family: var(--font-display); font-size: 20px; line-height: 24px; font-weight: 700; }
+.vwg-totals .vwg-vat { font-size: 14px; line-height: 20px; color: var(--ink-muted); }
+.vwg-totals-actions { display: grid; gap: var(--space-3); width: 100%; max-width: 320px; margin: var(--space-6) 0 0 auto; }
+.vwg-totals-actions .vwg-btn-link { justify-self: center; }
+.vwg-totals-note { margin: 0; font-size: 14px; line-height: 20px; color: var(--ink-muted); text-align: center; }
+@media (max-width: 599px) { .vwg-totals, .vwg-totals-actions { max-width: none; } }
+
+/* Quantity stepper: two small outline buttons around a 48px numeric input, joined into one control */
+.vwg-qty { display: inline-flex; align-items: stretch; }
+.vwg-qty .vwg-btn { width: 36px; min-height: 36px; padding: 0; font-size: 18px; line-height: 1; letter-spacing: 0; }
+.vwg-qty .vwg-btn:first-child { border-radius: var(--radius-sm) 0 0 var(--radius-sm); }
+.vwg-qty .vwg-btn:last-child { border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+.vwg-qty .vwg-btn:focus-visible { position: relative; z-index: 1; }
+.vwg-qty .vwg-input { width: 48px; min-height: 36px; height: 36px; padding: 0; border: 2px solid var(--ink); border-left: 0; border-right: 0; border-radius: 0; text-align: center; font-weight: 600; font-variant-numeric: tabular-nums; -moz-appearance: textfield; appearance: textfield; }
+.vwg-qty .vwg-input::-webkit-outer-spin-button, .vwg-qty .vwg-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.vwg-qty .vwg-input:focus-visible { position: relative; z-index: 1; border-color: var(--ink); }
+
+/* Pagination: real links, the current page in brick, Previous and Next as small outline buttons */
+.vwg-pagination { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--space-3); }
+.vwg-pagination ul { display: flex; flex-wrap: wrap; gap: var(--space-1); margin: 0; padding: 0; list-style: none; }
+.vwg-pagination li a, .vwg-pagination li span { display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 36px; padding: 0 var(--space-2); border: 2px solid transparent; border-radius: var(--radius-sm); color: var(--ink); font-family: var(--font-display); font-size: 13px; line-height: 20px; font-weight: 700; letter-spacing: 0.04em; font-variant-numeric: tabular-nums; text-decoration: none; }
+.vwg-pagination li span { color: var(--ink-muted); }
+.vwg-pagination li a:hover { border-color: var(--ink); }
+.vwg-pagination li a[aria-current="page"] { background: var(--brick); border-color: var(--brick); color: var(--on-brick); }
+@media (max-width: 599px) { .vwg-pagination ul { order: -1; flex-basis: 100%; justify-content: center; } }
+/* Filter: a row of small outline buttons; the active one is brick, like the current page */
+.vwg-filter { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
+.vwg-filter .vwg-btn[aria-current] { background: var(--brick); border-color: var(--brick); color: var(--on-brick); }
+
+/* Result page: paid, not paid, not found. A stamp, the h1, one sentence, the buttons, centred */
+.vwg-result { display: grid; gap: var(--space-4); justify-items: center; max-width: 560px; margin: 0 auto; padding: var(--space-8) 0; text-align: center; }
+.vwg-result .vwg-stamp { margin-bottom: var(--space-2); }
+.vwg-result h1 { margin: 0; font-family: var(--font-display); font-size: 40px; line-height: 44px; font-weight: 800; letter-spacing: 0.01em; text-transform: uppercase; }
+.vwg-result p { margin: 0; max-width: 44ch; font-size: 20px; line-height: 30px; color: var(--ink-muted); }
+.vwg-result-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-3); margin-top: var(--space-2); }
+@media (max-width: 599px) { .vwg-result h1 { font-size: 32px; line-height: 36px; } .vwg-result p { font-size: 17px; line-height: 26px; } }
+
+/* Map: a surface-raised box with the address; the Google Maps iframe is added only when Load map is pressed (VWG.map) */
+.vwg-map { position: relative; display: grid; aspect-ratio: 4 / 3; min-height: 280px; background: var(--surface-raised); border: 1px solid var(--line); overflow: hidden; }
+.vwg-map iframe { display: block; width: 100%; height: 100%; border: 0; }
+.vwg-map-placeholder { display: grid; align-content: center; justify-items: center; gap: var(--space-2); padding: var(--space-6); text-align: center; }
+.vwg-map-placeholder svg { width: 24px; height: 24px; color: var(--blue); }
+.vwg-map-placeholder address { margin: 0; font-style: normal; font-weight: 600; }
+.vwg-map-placeholder p { margin: 0; max-width: 36ch; font-size: 14px; line-height: 20px; color: var(--ink-muted); }
+.vwg-map-actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: var(--space-3); margin-top: var(--space-3); }
+/* Find us: the hours block and the map side by side from 760px */
+.vwg-split { display: grid; gap: var(--space-8); align-items: stretch; }
+.vwg-split .vwg-hours { grid-template-columns: 1fr; }
+.vwg-split > .vwg-map { aspect-ratio: auto; min-height: 320px; }
+@media (min-width: 760px) { .vwg-split { grid-template-columns: 1fr 1fr; } }
+
+/* Product page: the gallery and the details side by side from 760px */
+.vwg-product { display: grid; gap: var(--space-8); }
+@media (min-width: 760px) { .vwg-product { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); align-items: start; } }
+.vwg-product-gallery { display: grid; gap: var(--space-3); }
+.vwg-product-media { position: relative; aspect-ratio: 4 / 5; background: var(--line); }
+.vwg-product-media img { width: 100%; height: 100%; object-fit: cover; }
+.vwg-product-thumbs { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.vwg-product-thumb { display: block; width: 64px; height: 80px; padding: 0; border: 1px solid var(--line); background: var(--line); }
+.vwg-product-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.vwg-product-thumb:hover { border-color: var(--ink); }
+.vwg-product-thumb[aria-current="true"] { border: 2px solid var(--ink); }
+.vwg-product-details { display: grid; gap: var(--space-3); align-content: start; justify-items: start; }
+.vwg-product-details .vwg-stamp { margin: var(--space-1) 0 var(--space-2) var(--space-1); }
+.vwg-product-meta { margin: 0; color: var(--ink-muted); }
+.vwg-product-stock { margin: 0; }
+.vwg-product-details .vwg-price { margin-top: var(--space-2); }
+.vwg-product-details .vwg-prose { margin-top: var(--space-2); }
+.vwg-product-form { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); margin-top: var(--space-3); }
+.vwg-product-sold .vwg-product-media img { opacity: .55; }
+
+/* Focus on the new controls and links: the same ring as every other control */
+.vwg-notice-close:focus-visible, .vwg-pagination a:focus-visible, .vwg-product-thumb:focus-visible, .vwg-lines a:focus-visible, .vwg-prose a:focus-visible, .vwg-totals-note a:focus-visible { outline: 2px solid transparent; outline-offset: 2px; box-shadow: var(--focus-ring); }
 
 /* Vintage touches: a small kit, one or two per view (see the brand book) */
 .vwg-stamp { display: inline-flex; align-items: center; justify-content: center; padding: 6px var(--space-3); border: 2px solid currentColor; outline: 1px solid currentColor; outline-offset: -5px; background: var(--surface-raised); color: var(--brick); font-family: var(--font-display); font-size: 11px; line-height: 14px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap; transform: rotate(-6deg); }

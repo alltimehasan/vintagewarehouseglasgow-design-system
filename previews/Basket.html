@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8">
+<link rel="stylesheet" href="../dist/tokens.css?v=1.2.0-b87c207e">
+<link rel="stylesheet" href="../dist/vwg.css?v=1.2.0-c561fc57">
+<script src="../dist/vwg.js?v=1.2.0-116c56a0"></script>
+<script>(function(){var d=document.documentElement;function set(t){if(t==='light'||t==='dark')d.setAttribute('data-theme',t);else d.removeAttribute('data-theme')}var q=new URLSearchParams(location.search).get('theme');if(q)set(q);addEventListener('message',function(e){var m=e.data;if(m&&m.type==='vwg-theme')set(m.theme)});function size(){if(parent!==window)parent.postMessage({type:'vwg-size',height:d.scrollHeight},'*')}addEventListener('load',function(){if(parent!==window)parent.postMessage({type:'vwg-ready'},'*');size();if(window.ResizeObserver)new ResizeObserver(size).observe(document.body)})})();</script><title>Basket — preview</title></head>
+<body class="vwg-paper">
+<div class="vwg-container" style="padding-top: var(--space-6); padding-bottom: var(--space-8)">
+  <div class="vwg-page-title" style="margin-bottom: var(--space-6)">
+    <span class="vwg-script" aria-hidden="true">nearly there</span>
+    <h1>Your basket</h1>
+    <div class="vwg-rule" aria-hidden="true"></div>
+  </div>
+  <form action="#" method="post" onsubmit="return false">
+    <table class="vwg-lines">
+      <thead>
+        <tr><th>Bag</th><th>Quantity</th><th class="vwg-num">Total</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="vwg-lines-item">
+              <a class="vwg-lines-thumb" href="#"><img src="../dist/images/clothing-bales.jpg" alt=""></a>
+              <div>
+                <a class="vwg-lines-name" href="#">Mixed vintage bag</a>
+                <span class="vwg-lines-meta">Approx. 20 kg · 60–80 pieces · mixed sizes</span>
+                <p class="vwg-price"><span class="vwg-tag">£60.00</span></p>
+                <button class="vwg-btn vwg-btn-link" type="button">Remove</button>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="vwg-qty" role="group" aria-label="Quantity of Mixed vintage bag">
+              <button class="vwg-btn vwg-btn-outline vwg-btn-sm" type="button" aria-label="Decrease quantity">−</button>
+              <input class="vwg-input" type="number" name="quantity[1]" value="1" min="1" max="4" inputmode="numeric" aria-label="Quantity">
+              <button class="vwg-btn vwg-btn-outline vwg-btn-sm" type="button" aria-label="Increase quantity">+</button>
+            </div>
+          </td>
+          <td class="vwg-num">£60.00</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="vwg-lines-item">
+              <a class="vwg-lines-thumb" href="#"><img src="../dist/images/pick-and-choose-area.jpg" alt=""></a>
+              <div>
+                <a class="vwg-lines-name" href="#">Branded outlet bag</a>
+                <span class="vwg-lines-meta">Approx. 15 kg · 40–50 pieces · with tags</span>
+                <p class="vwg-price"><span class="vwg-tag">£95.00</span></p>
+                <button class="vwg-btn vwg-btn-link" type="button">Remove</button>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="vwg-qty" role="group" aria-label="Quantity of Branded outlet bag">
+              <button class="vwg-btn vwg-btn-outline vwg-btn-sm" type="button" aria-label="Decrease quantity">−</button>
+              <input class="vwg-input" type="number" name="quantity[2]" value="2" min="1" max="2" inputmode="numeric" aria-label="Quantity">
+              <button class="vwg-btn vwg-btn-outline vwg-btn-sm" type="button" aria-label="Increase quantity">+</button>
+            </div>
+          </td>
+          <td class="vwg-num">£190.00</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="vwg-totals">
+      <div><span>Subtotal</span><span>£250.00</span></div>
+      <div><span>UK delivery</span><span>£12.00</span></div>
+      <div class="vwg-grand"><span>Total</span><span>£262.00</span></div>
+      <div class="vwg-vat"><span>Includes VAT at 20%</span><span>£43.67</span></div>
+    </div>
+    <div class="vwg-totals-actions">
+      <button class="vwg-btn vwg-btn-brick vwg-btn-block" type="submit">Pay now</button>
+      <p class="vwg-totals-note">By paying you agree to our <a href="#">terms</a> and <a href="#">delivery and returns</a>, including your 14-day right to cancel.</p>
+      <a class="vwg-btn vwg-btn-link" href="#">Continue shopping</a>
+    </div>
+  </form>
+</div>
+<div class="vwg-container" style="padding-bottom: var(--space-6)">
+  <div class="vwg-empty">
+    <span class="vwg-script" aria-hidden="true">nothing here yet</span>
+    <p>Your basket is empty.</p>
+    <a class="vwg-btn vwg-btn-primary" href="#">Shop online</a>
+  </div>
+</div>
+<script>Array.prototype.forEach.call(document.querySelectorAll('.vwg-qty'), VWG.qty);</script>
+</body>
+</html>

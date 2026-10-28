@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8">
+<link rel="stylesheet" href="../dist/tokens.css?v=1.2.0-b87c207e">
+<link rel="stylesheet" href="../dist/vwg.css?v=1.2.0-c561fc57">
+<script src="../dist/vwg.js?v=1.2.0-116c56a0"></script>
+<script>(function(){var d=document.documentElement;function set(t){if(t==='light'||t==='dark')d.setAttribute('data-theme',t);else d.removeAttribute('data-theme')}var q=new URLSearchParams(location.search).get('theme');if(q)set(q);addEventListener('message',function(e){var m=e.data;if(m&&m.type==='vwg-theme')set(m.theme)});function size(){if(parent!==window)parent.postMessage({type:'vwg-size',height:d.scrollHeight},'*')}addEventListener('load',function(){if(parent!==window)parent.postMessage({type:'vwg-ready'},'*');size();if(window.ResizeObserver)new ResizeObserver(size).observe(document.body)})})();</script><title>Pagination — preview</title></head>
+<body class="vwg-paper">
+<div class="vwg-container" style="display: grid; gap: var(--space-8); padding-top: var(--space-6); padding-bottom: var(--space-6)">
+  <nav class="vwg-filter" aria-label="Filter the bags">
+    <a class="vwg-btn vwg-btn-outline vwg-btn-sm" href="#" aria-current="true">All bags</a>
+    <a class="vwg-btn vwg-btn-outline vwg-btn-sm" href="#">Vintage</a>
+    <a class="vwg-btn vwg-btn-outline vwg-btn-sm" href="#">New</a>
+  </nav>
+  <nav class="vwg-pagination" aria-label="Pages of bags">
+    <a class="vwg-btn vwg-btn-outline vwg-btn-sm" href="#" rel="prev">Previous</a>
+    <ul>
+      <li><a href="#">1</a></li>
+      <li><a href="#" aria-current="page">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><span aria-hidden="true">…</span></li>
+      <li><a href="#">8</a></li>
+    </ul>
+    <a class="vwg-btn vwg-btn-outline vwg-btn-sm" href="#" rel="next">Next</a>
+  </nav>
+</div>
+</body>
+</html>

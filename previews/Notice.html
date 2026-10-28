@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8">
+<link rel="stylesheet" href="../dist/tokens.css?v=1.2.0-b87c207e">
+<link rel="stylesheet" href="../dist/vwg.css?v=1.2.0-c561fc57">
+<script src="../dist/vwg.js?v=1.2.0-116c56a0"></script>
+<script>(function(){var d=document.documentElement;function set(t){if(t==='light'||t==='dark')d.setAttribute('data-theme',t);else d.removeAttribute('data-theme')}var q=new URLSearchParams(location.search).get('theme');if(q)set(q);addEventListener('message',function(e){var m=e.data;if(m&&m.type==='vwg-theme')set(m.theme)});function size(){if(parent!==window)parent.postMessage({type:'vwg-size',height:d.scrollHeight},'*')}addEventListener('load',function(){if(parent!==window)parent.postMessage({type:'vwg-ready'},'*');size();if(window.ResizeObserver)new ResizeObserver(size).observe(document.body)})})();</script><title>Notice — preview</title></head>
+<body class="vwg-paper">
+<div class="vwg-container" style="display: grid; gap: var(--space-3); padding-top: var(--space-6); padding-bottom: var(--space-6)">
+  <div class="vwg-notice vwg-notice-stock" role="status">
+    <p>Added to your basket. <a href="#">View basket</a></p>
+    <button class="vwg-notice-close" type="button" aria-label="Dismiss">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="vwg-notice vwg-notice-danger" role="alert">
+    <p>Payment was not completed. Your basket is unchanged.</p>
+  </div>
+  <div class="vwg-notice vwg-notice-info" role="status">
+    <p>UK delivery is £12.00 per order, however many bags you add.</p>
+  </div>
+  <div class="vwg-notice" role="status">
+    <p>Message sent. We reply within a working day.</p>
+    <button class="vwg-notice-close" type="button" aria-label="Dismiss">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+</div>
+<script>VWG.notices();</script>
+</body>
+</html>

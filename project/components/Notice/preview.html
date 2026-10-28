@@ -1,0 +1,28 @@
+<!-- @dsCard group="Status" height=320 width=960 -->
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Notice — preview</title></head>
+<body class="vwg-paper">
+<div class="vwg-container" style="display: grid; gap: var(--space-3); padding-top: var(--space-6); padding-bottom: var(--space-6)">
+  <div class="vwg-notice vwg-notice-stock" role="status">
+    <p>Added to your basket. <a href="#">View basket</a></p>
+    <button class="vwg-notice-close" type="button" aria-label="Dismiss">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="vwg-notice vwg-notice-danger" role="alert">
+    <p>Payment was not completed. Your basket is unchanged.</p>
+  </div>
+  <div class="vwg-notice vwg-notice-info" role="status">
+    <p>UK delivery is £12.00 per order, however many bags you add.</p>
+  </div>
+  <div class="vwg-notice" role="status">
+    <p>Message sent. We reply within a working day.</p>
+    <button class="vwg-notice-close" type="button" aria-label="Dismiss">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+</div>
+<script>VWG.notices();</script>
+</body>
+</html>

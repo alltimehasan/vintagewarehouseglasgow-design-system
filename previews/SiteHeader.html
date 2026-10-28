@@ -1,24 +1,26 @@
 <!doctype html>
 <html lang="en">
 <head><meta charset="utf-8">
-<link rel="stylesheet" href="../dist/tokens.css?v=1.1.0-b87c207e">
-<link rel="stylesheet" href="../dist/vwg.css?v=1.1.0-1d9d731a">
-<script src="../dist/vwg.js?v=1.1.0-fe944742"></script>
+<link rel="stylesheet" href="../dist/tokens.css?v=1.2.0-b87c207e">
+<link rel="stylesheet" href="../dist/vwg.css?v=1.2.0-c561fc57">
+<script src="../dist/vwg.js?v=1.2.0-116c56a0"></script>
 <script>(function(){var d=document.documentElement;function set(t){if(t==='light'||t==='dark')d.setAttribute('data-theme',t);else d.removeAttribute('data-theme')}var q=new URLSearchParams(location.search).get('theme');if(q)set(q);addEventListener('message',function(e){var m=e.data;if(m&&m.type==='vwg-theme')set(m.theme)});function size(){if(parent!==window)parent.postMessage({type:'vwg-size',height:d.scrollHeight},'*')}addEventListener('load',function(){if(parent!==window)parent.postMessage({type:'vwg-ready'},'*');size();if(window.ResizeObserver)new ResizeObserver(size).observe(document.body)})})();</script><title>SiteHeader — preview</title></head>
 <body class="vwg-paper">
+<a class="vwg-skip" href="#main">Skip to content</a>
 <header class="vwg-header">
   <div class="vwg-container vwg-header-inner">
     <a class="vwg-logo" href="#" aria-label="Vintage Warehouse Glasgow, home">
       <img class="vwg-logo-light" src="../dist/images/logo-black.png" alt="" width="56" height="56">
       <img class="vwg-logo-dark" src="../dist/images/logo-white.png" alt="" width="56" height="56">
     </a>
-    <nav class="vwg-nav" aria-label="Main">
+    <nav class="vwg-nav" id="menu" aria-label="Main">
       <a href="#" aria-current="page">Shop online</a>
       <a href="#">Find us</a>
       <a href="#">Contact us</a>
     </nav>
-    <button class="vwg-menu-btn" type="button" aria-expanded="false">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    <button class="vwg-menu-btn" type="button" aria-expanded="false" aria-controls="menu">
+      <svg class="vwg-menu-icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="vwg-menu-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
       Menu
     </button>
     <a class="vwg-basket" href="#">
@@ -27,5 +29,11 @@
     </a>
   </div>
 </header>
+<main id="main" class="vwg-container" style="padding-top: var(--space-4); color: var(--ink-muted)">The page starts here.</main>
+<script>
+  var menu = VWG.menu(document.querySelector('.vwg-header'));
+  /* Preview only: on a phone-width viewport, show the panel open */
+  if (menu && matchMedia('(max-width: 759px)').matches) menu.open();
+</script>
 </body>
 </html>
