@@ -18,6 +18,6 @@ The homepage opens on the façade: the photo under the flat `overlay`, a script 
 
 - The photo is decorative (`alt=""`); the headline is the page's `h1`.
 - `vwg-photo-aged` warms the façade a little. The `Strip` runs directly under the hero on the homepage.
-- Keep the overlay flat and at full strength: the text must read on any photo in both themes.
+- Keep the overlay flat and at full strength: the text must read on any photo in both themes. Every line of text, the sentence included, is `on-band`; muted text does not read on brick.
 - Buttons on the hero are `inverse` and `ghost`, never primary.
 - Under 600px the type steps down to 40px and the top padding to `space-16`.

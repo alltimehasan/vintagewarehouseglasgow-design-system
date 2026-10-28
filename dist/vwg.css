@@ -115,7 +115,7 @@ textarea.vwg-input { min-height: 128px; resize: vertical; }
 .vwg-hero-inner > * { max-width: 720px; }
 .vwg-hero .vwg-script { font-size: 48px; line-height: 52px; }
 .vwg-hero h1 { margin: 0; font-family: var(--font-display); font-size: 56px; line-height: 60px; font-weight: 800; letter-spacing: 0.01em; text-transform: uppercase; }
-.vwg-hero p { margin: 0; font-size: 20px; line-height: 30px; max-width: 48ch; color: var(--on-band-muted); }
+.vwg-hero p { margin: 0; font-size: 20px; line-height: 30px; max-width: 48ch; color: var(--on-band); }
 .vwg-hero-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-4); }
 @media (max-width: 599px) {
   .vwg-hero { min-height: 380px; }
