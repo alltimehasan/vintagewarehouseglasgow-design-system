@@ -5,8 +5,8 @@ The Find us block: address and directions on the left, the hours table on the ri
   <div>
     <span class="vwg-script" aria-hidden="true">find us</span>
     <h2 id="find-us">Vintage Warehouse Glasgow</h2>
-    <address>Street address<br>Glasgow G0 0AA</address>
-    <a class="vwg-btn vwg-btn-outline" href="https://maps.google.com/?q=...">Get directions</a>
+    <address>Bay E, Barclay Curle Complex<br>South Street, Glasgow G14&nbsp;0BX</address>
+    <a class="vwg-btn vwg-btn-outline" href="https://www.google.com/maps/search/?api=1&query=Barclay+Curle+Complex%2C+South+Street%2C+Glasgow+G14+0BX" target="_blank" rel="noopener">Get directions</a>
   </div>
   <div>
     <h3>Opening hours</h3>
@@ -19,7 +19,7 @@ The Find us block: address and directions on the left, the hours table on the ri
 </section>
 ```
 
-- Hours as the client gave them: Monday to Friday 10am–5pm, Saturday 10am–3pm. Sunday closed is assumed; confirm it.
+- The address, as the client gave it on 28 October 2026: Bay E, Barclay Curle Complex, South Street, Glasgow G14 0BX. Two lines, in that order, everywhere it appears.
+- Hours as the client gave them: Monday to Friday 10am–5pm, Saturday 10am–3pm, Sunday closed for now. Keep the Sunday row; it may open later.
 - Times use an en dash and no spaces; "Closed" is `ink-muted`.
-- The map is a plain link out ("Get directions"); embed the map beside this block on the Find us page only.
-- The street address is still to come; do not publish the block without it.
+- "Get directions" opens Google Maps in a new tab with the address as the query; embed the map beside this block on the Find us page only.

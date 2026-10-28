@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="../dist/vwg.css">
 <script src="../dist/vwg.js"></script>
 <script>(function(){var d=document.documentElement;function set(t){if(t==='light'||t==='dark')d.setAttribute('data-theme',t);else d.removeAttribute('data-theme')}var q=new URLSearchParams(location.search).get('theme');if(q)set(q);addEventListener('message',function(e){var m=e.data;if(m&&m.type==='vwg-theme')set(m.theme)});function size(){if(parent!==window)parent.postMessage({type:'vwg-size',height:d.scrollHeight},'*')}addEventListener('load',function(){if(parent!==window)parent.postMessage({type:'vwg-ready'},'*');size();if(window.ResizeObserver)new ResizeObserver(size).observe(document.body)})})();</script><title>Invoice — preview</title></head>
-<body>
+<body class="vwg-paper">
 <div style="padding: var(--space-6)">
 <article class="vwg-invoice" aria-label="Online order invoice 0001">
   <div class="vwg-invoice-head">
@@ -14,14 +14,14 @@
     </div>
     <div class="vwg-invoice-title">
       <h1>Online order invoice</h1>
-      <p>No. 0001 · 27 October 2026</p>
-      <span class="vwg-badge vwg-badge-stock">Paid</span>
+      <p>No. 0001 · 28 October 2026</p>
+      <span class="vwg-stamp vwg-stamp-stock">Paid</span>
     </div>
   </div>
   <div class="vwg-invoice-parties">
     <div>
       <h4>From</h4>
-      <p><strong>Vintage Warehouse Glasgow</strong><br>R and BM Logistics Limited<br>Company address to be confirmed<br>Glasgow, Scotland</p>
+      <p><strong>Vintage Warehouse Glasgow</strong><br>R and BM Logistics Limited<br>Bay E, Barclay Curle Complex<br>South Street, Glasgow G14&nbsp;0BX<br>Company no. SC769949 · VAT no. to be confirmed</p>
     </div>
     <div>
       <h4>To</h4>
@@ -42,8 +42,9 @@
     <div><span>Subtotal</span><span>£155.00</span></div>
     <div><span>Delivery</span><span>£12.00</span></div>
     <div class="vwg-grand"><span>Total paid</span><span>£167.00</span></div>
+    <div class="vwg-vat"><span>Includes VAT at 20%</span><span>£27.83</span></div>
   </div>
-  <p class="vwg-invoice-foot">Paid by card on 27 October 2026. Thank you for your order. Vintage Warehouse Glasgow · UK delivery only.</p>
+  <p class="vwg-invoice-foot">Paid by card on 28 October 2026. All prices include VAT. Thank you for your order. Vintage Warehouse Glasgow · UK delivery only.</p>
 </article>
 </div>
 </body>

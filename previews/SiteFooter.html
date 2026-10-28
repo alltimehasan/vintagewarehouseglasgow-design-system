@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="../dist/vwg.css">
 <script src="../dist/vwg.js"></script>
 <script>(function(){var d=document.documentElement;function set(t){if(t==='light'||t==='dark')d.setAttribute('data-theme',t);else d.removeAttribute('data-theme')}var q=new URLSearchParams(location.search).get('theme');if(q)set(q);addEventListener('message',function(e){var m=e.data;if(m&&m.type==='vwg-theme')set(m.theme)});function size(){if(parent!==window)parent.postMessage({type:'vwg-size',height:d.scrollHeight},'*')}addEventListener('load',function(){if(parent!==window)parent.postMessage({type:'vwg-ready'},'*');size();if(window.ResizeObserver)new ResizeObserver(size).observe(document.body)})})();</script><title>SiteFooter — preview</title></head>
-<body>
+<body class="vwg-paper">
 <footer class="vwg-footer">
   <div class="vwg-container vwg-footer-inner">
     <div class="vwg-footer-brand">
@@ -23,6 +23,7 @@
     <div>
       <h4>Visit</h4>
       <ul>
+        <li>Bay E, Barclay Curle Complex<br>South Street, Glasgow G14&nbsp;0BX</li>
         <li>Mon–Fri 10am–5pm</li>
         <li>Sat 10am–3pm</li>
         <li>Sun closed</li>

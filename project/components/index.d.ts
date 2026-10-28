@@ -1,5 +1,5 @@
 // Vintage Warehouse Glasgow — window.VWG. Plain DOM builders, no framework; each returns an element.
-// SiteHeader, Hero, OpeningHours, SiteFooter and Invoice are markup patterns (see their README and preview), not builders.
+// SiteHeader, Hero, Strip, OpeningHours, SiteFooter and Invoice are markup patterns (see their README and preview), not builders.
 
 export interface ButtonProps {
   /** The verb. "Shop online", "Add to basket". */
@@ -27,6 +27,18 @@ export interface BadgeProps {
 }
 export declare function Badge(props: BadgeProps): HTMLSpanElement;
 
+export interface StampProps {
+  /** "Vintage", "New", "Paid", "Sold out". */
+  label: string;
+  /** vintage = brick (default); new = blue; stock = Paid; sold = Sold out in danger. */
+  tone?: 'vintage' | 'new' | 'stock' | 'sold';
+  /** lg is the big tilted stamp across a sold-out photo. */
+  size?: 'md' | 'lg';
+  className?: string;
+}
+/** A rubber-stamp label for photos and the invoice; Badge is the pill for tables and lists. */
+export declare function Stamp(props: StampProps): HTMLSpanElement;
+
 export interface ProductCardProps {
   /** Sentence case: "Mixed vintage bag". */
   name: string;
@@ -34,14 +46,14 @@ export interface ProductCardProps {
   /** 4:5 photo of the whole bag. */
   image: string;
   alt?: string;
-  /** Sets the badge: Vintage or New. */
+  /** Sets the stamp on the photo: Vintage or New. */
   kind: 'vintage' | 'new';
   /** "Approx. 20 kg · 60–80 pieces · mixed sizes" */
   meta?: string;
   pricePence: number;
   /** Defaults to "UK delivery only"; keep it. */
   priceNote?: string;
-  /** Dims the photo, swaps the badge and disables the button. */
+  /** Dims the photo, adds the Sold out stamp across it and disables the button. */
   soldOut?: boolean;
   onAdd?: (e: MouseEvent) => void;
 }
@@ -81,7 +93,7 @@ export declare function invoiceNumber(n: number): string;
 declare global {
   interface Window {
     VWG: {
-      Button: typeof Button; Badge: typeof Badge; ProductCard: typeof ProductCard;
+      Button: typeof Button; Badge: typeof Badge; Stamp: typeof Stamp; ProductCard: typeof ProductCard;
       SectionHeading: typeof SectionHeading; Field: typeof Field;
       formatPrice: typeof formatPrice; invoiceNumber: typeof invoiceNumber;
     };

@@ -2,7 +2,7 @@ The homepage opens on the façade: the photo under the flat `overlay`, a script 
 
 ```html
 <section class="vwg-hero">
-  <img class="vwg-hero-media" src="/images/warehouse-exterior.jpg" alt="">
+  <img class="vwg-hero-media vwg-photo-aged" src="/images/warehouse-exterior.jpg" alt="">
   <div class="vwg-hero-overlay" aria-hidden="true"></div>
   <div class="vwg-container vwg-hero-inner">
     <span class="vwg-script" aria-hidden="true">outlets, new &amp; secondhand</span>
@@ -17,6 +17,7 @@ The homepage opens on the façade: the photo under the flat `overlay`, a script 
 ```
 
 - The photo is decorative (`alt=""`); the headline is the page's `h1`.
+- `vwg-photo-aged` warms the façade a little. The `Strip` runs directly under the hero on the homepage.
 - Keep the overlay flat and at full strength: the text must read on any photo in both themes.
 - Buttons on the hero are `inverse` and `ghost`, never primary.
 - Under 600px the type steps down to 40px and the top padding to `space-16`.

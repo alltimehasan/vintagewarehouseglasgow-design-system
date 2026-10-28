@@ -1,4 +1,4 @@
-Every section opens the same way: a script lead-in in brick, the uppercase heading, a short black rule, and an optional one-line intro. The pattern is the logo's: script over bold caps.
+Every section opens the same way: a script lead-in in brick, the uppercase heading, a short thick-thin rule, and an optional one-line intro. The pattern is the logo's: script over bold caps.
 
 ```html
 <div class="vwg-section-heading">
@@ -10,5 +10,6 @@ Every section opens the same way: a script lead-in in brick, the uppercase headi
 ```
 
 - The lead-in is one to three lowercase words and is decorative (`aria-hidden`); the `h2` carries the meaning.
+- The rule is 3px over 1px, 48px wide, like a line in a ledger; it is `vwg-rule` and needs no content.
 - On `band` the rule and intro switch to `on-band` and `on-band-muted` by themselves.
 - From JavaScript: `VWG.SectionHeading({ lead, title, intro })`.

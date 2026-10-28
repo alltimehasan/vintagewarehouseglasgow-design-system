@@ -10,5 +10,5 @@ One or two uppercase words of status, as a pill. Every product carries Vintage o
 
 - Tones: `vintage` (brick on brick-soft), `new` (blue on blue-soft), `stock`, `sold` (muted), `danger` (payment failed), and none for neutral facts like sizes.
 - The word carries the meaning; the colour only repeats it.
-- On a product photo, position it with `vwg-card-badge`.
+- Tables, filters and lists only. On a product photo and on the invoice the `Stamp` does this job.
 - From JavaScript: `VWG.Badge({ label, tone })`.

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Components · Vintage Warehouse Glasgow</title>
-<meta name="description" content="10 patterns the website is built from, each with its live preview, guidelines and markup. Styles are in dist/vwg.css with the prefix vwg-; small ones also have builders in dist/vwg.js as window.VWG.">
+<meta name="description" content="12 patterns the website is built from, each with its live preview, guidelines and markup. Styles are in dist/vwg.css with the prefix vwg-; small ones also have builders in dist/vwg.js as window.VWG.">
 <link rel="icon" href="dist/images/icon-32.png" sizes="32x32">
 <link rel="icon" href="dist/images/icon-192.png" sizes="192x192">
 <link rel="apple-touch-icon" href="dist/images/icon-180.png">
@@ -39,9 +39,9 @@
 <div class="sg-head">
   <span class="sg-eyebrow">Build</span>
   <h1>Components</h1>
-  <p>10 patterns the website is built from, each with its live preview, guidelines and markup. Styles are in dist/vwg.css with the prefix vwg-; small ones also have builders in dist/vwg.js as window.VWG.</p>
+  <p>12 patterns the website is built from, each with its live preview, guidelines and markup. Styles are in dist/vwg.css with the prefix vwg-; small ones also have builders in dist/vwg.js as window.VWG.</p>
 </div>
-<nav class="sg-toc" aria-label="Components"><a href="#button">Button</a><a href="#badge">Badge</a><a href="#productcard">ProductCard</a><a href="#sectionheading">SectionHeading</a><a href="#field">Field</a><a href="#siteheader">SiteHeader</a><a href="#hero">Hero</a><a href="#openinghours">OpeningHours</a><a href="#sitefooter">SiteFooter</a><a href="#invoice">Invoice</a></nav>
+<nav class="sg-toc" aria-label="Components"><a href="#button">Button</a><a href="#badge">Badge</a><a href="#stamp">Stamp</a><a href="#productcard">ProductCard</a><a href="#sectionheading">SectionHeading</a><a href="#field">Field</a><a href="#siteheader">SiteHeader</a><a href="#hero">Hero</a><a href="#strip">Strip</a><a href="#openinghours">OpeningHours</a><a href="#sitefooter">SiteFooter</a><a href="#invoice">Invoice</a></nav>
 <section class="sg-component" id="button">
 <header><span class="sg-eyebrow">Actions</span><h2>Button</h2></header>
 <div class="sg-preview" data-width="960" data-height="176"><iframe src="previews/Button.html" title="Button preview" width="960" height="176" loading="lazy"></iframe></div>
@@ -75,7 +75,7 @@
 &lt;span class=&quot;vwg-badge vwg-badge-stock&quot;&gt;In stock&lt;/span&gt;
 &lt;span class=&quot;vwg-badge vwg-badge-sold&quot;&gt;Sold out&lt;/span&gt;
 &lt;span class=&quot;vwg-badge&quot;&gt;Mixed sizes&lt;/span&gt;</code></pre>
-<ul><li>Tones: <code>vintage</code> (brick on brick-soft), <code>new</code> (blue on blue-soft), <code>stock</code>, <code>sold</code> (muted), <code>danger</code> (payment failed), and none for neutral facts like sizes.</li><li>The word carries the meaning; the colour only repeats it.</li><li>On a product photo, position it with <code>vwg-card-badge</code>.</li><li>From JavaScript: <code>VWG.Badge({ label, tone })</code>.</li></ul></div>
+<ul><li>Tones: <code>vintage</code> (brick on brick-soft), <code>new</code> (blue on blue-soft), <code>stock</code>, <code>sold</code> (muted), <code>danger</code> (payment failed), and none for neutral facts like sizes.</li><li>The word carries the meaning; the colour only repeats it.</li><li>Tables, filters and lists only. On a product photo and on the invoice the <code>Stamp</code> does this job.</li><li>From JavaScript: <code>VWG.Badge({ label, tone })</code>.</li></ul></div>
 <details><summary>Preview markup</summary><pre><code class="language-html">&lt;div class=&quot;vwg-row&quot;&gt;
   &lt;span class=&quot;vwg-badge vwg-badge-vintage&quot;&gt;Vintage&lt;/span&gt;
   &lt;span class=&quot;vwg-badge vwg-badge-new&quot;&gt;New&lt;/span&gt;
@@ -86,37 +86,59 @@
 &lt;/div&gt;</code></pre></details>
 </section>
 
+<section class="sg-component" id="stamp">
+<header><span class="sg-eyebrow">Status</span><h2>Stamp</h2></header>
+<div class="sg-preview" data-width="960" data-height="120"><iframe src="previews/Stamp.html" title="Stamp preview" width="960" height="120" loading="lazy"></iframe></div>
+<div class="sg-preview-bar"><span>Live preview, 960px layout, follows the theme switch.</span><a class="sg-open" href="previews/Stamp.html" target="_blank" rel="noopener">Open in a new tab</a></div>
+<div class="sg-prose"><p>A rubber-stamp label: one or two uppercase words inside a double line, tilted a little, as if stamped on a bale label. It goes on product photos (Vintage, New, Sold out) and on the invoice (Paid). Its companion is the swing-tag price, <code>vwg-tag</code>.</p>
+<pre><code class="language-html">&lt;span class=&quot;vwg-stamp&quot;&gt;Vintage&lt;/span&gt;
+&lt;span class=&quot;vwg-stamp vwg-stamp-new&quot;&gt;New&lt;/span&gt;
+&lt;span class=&quot;vwg-stamp vwg-stamp-stock&quot;&gt;Paid&lt;/span&gt;
+&lt;span class=&quot;vwg-stamp vwg-stamp-sold vwg-stamp-lg&quot;&gt;Sold out&lt;/span&gt;
+
+&lt;p class=&quot;vwg-price&quot;&gt;&lt;span class=&quot;vwg-tag&quot;&gt;£60.00&lt;/span&gt; &lt;small&gt;UK delivery only&lt;/small&gt;&lt;/p&gt;</code></pre>
+<ul><li>Tones: brick by default (Vintage), <code>vwg-stamp-new</code> (blue), <code>vwg-stamp-stock</code> (Paid), <code>vwg-stamp-sold</code> (danger). The word carries the meaning; the colour repeats it.</li><li><code>vwg-stamp-lg</code> is the big one, tilted 12°, across a sold-out photo with <code>vwg-card-stamp-lg</code>. On a photo the small stamp sits top left with <code>vwg-card-stamp</code>.</li><li>The stamp has a <code>surface-raised</code> ground so it reads on any photo in both themes. Never put one on <code>band</code>.</li><li>The <code>Badge</code> pill stays for tables, filters and lists; a tilted stamp in a table row looks like a mistake.</li><li>The price tag: brick on brick-soft with a punched hole and a pointed end, 32px tall, tabular numerals. Product cards and the basket only; invoice lines and totals stay plain.</li><li>From JavaScript: <code>VWG.Stamp({ label, tone, size })</code>.</li></ul></div>
+<details><summary>Preview markup</summary><pre><code class="language-html">&lt;div class=&quot;vwg-row&quot; style=&quot;gap: var(--space-8); padding: var(--space-6)&quot;&gt;
+  &lt;span class=&quot;vwg-stamp&quot;&gt;Vintage&lt;/span&gt;
+  &lt;span class=&quot;vwg-stamp vwg-stamp-new&quot;&gt;New&lt;/span&gt;
+  &lt;span class=&quot;vwg-stamp vwg-stamp-stock&quot;&gt;Paid&lt;/span&gt;
+  &lt;span class=&quot;vwg-stamp vwg-stamp-sold&quot;&gt;Sold out&lt;/span&gt;
+  &lt;span class=&quot;vwg-stamp vwg-stamp-sold vwg-stamp-lg&quot;&gt;Sold out&lt;/span&gt;
+  &lt;p class=&quot;vwg-price&quot; style=&quot;margin-left: var(--space-4)&quot;&gt;&lt;span class=&quot;vwg-tag&quot;&gt;£60.00&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;</code></pre></details>
+</section>
+
 <section class="sg-component" id="productcard">
 <header><span class="sg-eyebrow">Shop</span><h2>ProductCard</h2></header>
-<div class="sg-preview" data-width="960" data-height="560"><iframe src="previews/ProductCard.html" title="ProductCard preview" width="960" height="560" loading="lazy"></iframe></div>
+<div class="sg-preview" data-width="960" data-height="580"><iframe src="previews/ProductCard.html" title="ProductCard preview" width="960" height="580" loading="lazy"></iframe></div>
 <div class="sg-preview-bar"><span>Live preview, 960px layout, follows the theme switch.</span><a class="sg-open" href="previews/ProductCard.html" target="_blank" rel="noopener">Open in a new tab</a></div>
-<div class="sg-prose"><p>A bag for sale: photo with its Vintage or New badge, name, weight and piece count, the price with &quot;UK delivery only&quot; under it, and Add to basket. The shop has about six of these, in a <code>vwg-grid</code>.</p>
+<div class="sg-prose"><p>A bag for sale: photo with its Vintage or New stamp, name, weight and piece count, the price on a swing tag with &quot;UK delivery only&quot; under it, and Add to basket. The shop has about six of these, in a <code>vwg-grid</code>.</p>
 <pre><code class="language-html">&lt;article class=&quot;vwg-card&quot;&gt;
   &lt;a class=&quot;vwg-card-media&quot; href=&quot;/shop/mixed-vintage-bag&quot;&gt;
     &lt;img src=&quot;/images/mixed-vintage-bag.jpg&quot; alt=&quot;Mixed vintage bag, about 20 kg&quot;&gt;
-    &lt;span class=&quot;vwg-badge vwg-badge-vintage vwg-card-badge&quot;&gt;Vintage&lt;/span&gt;
+    &lt;span class=&quot;vwg-stamp vwg-card-stamp&quot;&gt;Vintage&lt;/span&gt;
   &lt;/a&gt;
   &lt;div class=&quot;vwg-card-body&quot;&gt;
     &lt;h3 class=&quot;vwg-card-title&quot;&gt;&lt;a href=&quot;/shop/mixed-vintage-bag&quot;&gt;Mixed vintage bag&lt;/a&gt;&lt;/h3&gt;
     &lt;p class=&quot;vwg-card-meta&quot;&gt;Approx. 20 kg · 60–80 pieces · mixed sizes&lt;/p&gt;
     &lt;div class=&quot;vwg-card-foot&quot;&gt;
-      &lt;p class=&quot;vwg-price&quot;&gt;£60.00 &lt;small&gt;UK delivery only&lt;/small&gt;&lt;/p&gt;
+      &lt;p class=&quot;vwg-price&quot;&gt;&lt;span class=&quot;vwg-tag&quot;&gt;£60.00&lt;/span&gt; &lt;small&gt;UK delivery only&lt;/small&gt;&lt;/p&gt;
       &lt;button class=&quot;vwg-btn vwg-btn-primary vwg-btn-sm&quot; type=&quot;button&quot;&gt;Add to basket&lt;/button&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/article&gt;</code></pre>
-<ul><li>The photo is 4:5 and shows the whole bag. Until product photos arrive, the bales photo stands in.</li><li>Sold out: add <code>vwg-card-sold</code> to the article, swap the badge to <code>vwg-badge-sold</code> and disable the button with the label &quot;Sold out&quot;. Never hide a sold-out bag; people come back for it.</li><li>The name is sentence case (<code>h3</code>); the price is the <code>price</code> style with tabular numerals.</li><li>From JavaScript: <code>VWG.ProductCard({ name, image, kind: 'vintage' | 'new', meta, pricePence, soldOut, onAdd })</code>.</li><li>Prices in the preview are examples; the real list comes from the client.</li></ul></div>
+<ul><li>The photo is 4:5 and shows the whole bag, in its true colours: never <code>vwg-photo-aged</code> here. Until product photos arrive, the bales photo stands in.</li><li>The stamp on the photo is <code>Stamp</code>: brick for Vintage, <code>vwg-stamp-new</code> for New. The pill <code>Badge</code> is for tables and lists, not photos.</li><li>Sold out: add <code>vwg-card-sold</code> to the article, keep the Vintage or New stamp, add the big <code>vwg-stamp-sold vwg-stamp-lg vwg-card-stamp-lg</code> across the photo and disable the button with the label &quot;Sold out&quot;. Never hide a sold-out bag; people come back for it.</li><li>The name is sentence case (<code>h3</code>); the price sits on the <code>vwg-tag</code> swing tag with tabular numerals, and &quot;UK delivery only&quot; under it.</li><li>From JavaScript: <code>VWG.ProductCard({ name, image, kind: 'vintage' | 'new', meta, pricePence, soldOut, onAdd })</code>.</li></ul></div>
 <details><summary>Preview markup</summary><pre><code class="language-html">&lt;div class=&quot;vwg-grid&quot; style=&quot;padding: var(--space-4)&quot;&gt;
   &lt;article class=&quot;vwg-card&quot;&gt;
     &lt;a class=&quot;vwg-card-media&quot; href=&quot;#&quot;&gt;
       &lt;img src=&quot;dist/images/clothing-bales.jpg&quot; alt=&quot;Mixed vintage bag, about 20 kg&quot;&gt;
-      &lt;span class=&quot;vwg-badge vwg-badge-vintage vwg-card-badge&quot;&gt;Vintage&lt;/span&gt;
+      &lt;span class=&quot;vwg-stamp vwg-card-stamp&quot;&gt;Vintage&lt;/span&gt;
     &lt;/a&gt;
     &lt;div class=&quot;vwg-card-body&quot;&gt;
       &lt;h3 class=&quot;vwg-card-title&quot;&gt;&lt;a href=&quot;#&quot;&gt;Mixed vintage bag&lt;/a&gt;&lt;/h3&gt;
       &lt;p class=&quot;vwg-card-meta&quot;&gt;Approx. 20 kg · 60–80 pieces · mixed sizes&lt;/p&gt;
       &lt;div class=&quot;vwg-card-foot&quot;&gt;
-        &lt;p class=&quot;vwg-price&quot;&gt;£60.00 &lt;small&gt;UK delivery only&lt;/small&gt;&lt;/p&gt;
+        &lt;p class=&quot;vwg-price&quot;&gt;&lt;span class=&quot;vwg-tag&quot;&gt;£60.00&lt;/span&gt; &lt;small&gt;UK delivery only&lt;/small&gt;&lt;/p&gt;
         &lt;button class=&quot;vwg-btn vwg-btn-primary vwg-btn-sm&quot; type=&quot;button&quot;&gt;Add to basket&lt;/button&gt;
       &lt;/div&gt;
     &lt;/div&gt;
@@ -124,13 +146,13 @@
   &lt;article class=&quot;vwg-card&quot;&gt;
     &lt;a class=&quot;vwg-card-media&quot; href=&quot;#&quot;&gt;
       &lt;img src=&quot;dist/images/pick-and-choose-area.jpg&quot; alt=&quot;Branded outlet bag, about 15 kg&quot;&gt;
-      &lt;span class=&quot;vwg-badge vwg-badge-new vwg-card-badge&quot;&gt;New&lt;/span&gt;
+      &lt;span class=&quot;vwg-stamp vwg-stamp-new vwg-card-stamp&quot;&gt;New&lt;/span&gt;
     &lt;/a&gt;
     &lt;div class=&quot;vwg-card-body&quot;&gt;
       &lt;h3 class=&quot;vwg-card-title&quot;&gt;&lt;a href=&quot;#&quot;&gt;Branded outlet bag&lt;/a&gt;&lt;/h3&gt;
       &lt;p class=&quot;vwg-card-meta&quot;&gt;Approx. 15 kg · 40–50 pieces · with tags&lt;/p&gt;
       &lt;div class=&quot;vwg-card-foot&quot;&gt;
-        &lt;p class=&quot;vwg-price&quot;&gt;£95.00 &lt;small&gt;UK delivery only&lt;/small&gt;&lt;/p&gt;
+        &lt;p class=&quot;vwg-price&quot;&gt;&lt;span class=&quot;vwg-tag&quot;&gt;£95.00&lt;/span&gt; &lt;small&gt;UK delivery only&lt;/small&gt;&lt;/p&gt;
         &lt;button class=&quot;vwg-btn vwg-btn-primary vwg-btn-sm&quot; type=&quot;button&quot;&gt;Add to basket&lt;/button&gt;
       &lt;/div&gt;
     &lt;/div&gt;
@@ -138,13 +160,14 @@
   &lt;article class=&quot;vwg-card vwg-card-sold&quot;&gt;
     &lt;a class=&quot;vwg-card-media&quot; href=&quot;#&quot;&gt;
       &lt;img src=&quot;dist/images/clothing-bales.jpg&quot; alt=&quot;Vintage denim bag, about 20 kg&quot;&gt;
-      &lt;span class=&quot;vwg-badge vwg-badge-sold vwg-card-badge&quot;&gt;Sold out&lt;/span&gt;
+      &lt;span class=&quot;vwg-stamp vwg-card-stamp&quot;&gt;Vintage&lt;/span&gt;
+      &lt;span class=&quot;vwg-stamp vwg-stamp-sold vwg-stamp-lg vwg-card-stamp-lg&quot;&gt;Sold out&lt;/span&gt;
     &lt;/a&gt;
     &lt;div class=&quot;vwg-card-body&quot;&gt;
       &lt;h3 class=&quot;vwg-card-title&quot;&gt;&lt;a href=&quot;#&quot;&gt;Vintage denim bag&lt;/a&gt;&lt;/h3&gt;
       &lt;p class=&quot;vwg-card-meta&quot;&gt;Approx. 20 kg · 40–50 pieces · jeans and jackets&lt;/p&gt;
       &lt;div class=&quot;vwg-card-foot&quot;&gt;
-        &lt;p class=&quot;vwg-price&quot;&gt;£75.00 &lt;small&gt;UK delivery only&lt;/small&gt;&lt;/p&gt;
+        &lt;p class=&quot;vwg-price&quot;&gt;&lt;span class=&quot;vwg-tag&quot;&gt;£75.00&lt;/span&gt; &lt;small&gt;UK delivery only&lt;/small&gt;&lt;/p&gt;
         &lt;button class=&quot;vwg-btn vwg-btn-primary vwg-btn-sm&quot; type=&quot;button&quot; disabled&gt;Sold out&lt;/button&gt;
       &lt;/div&gt;
     &lt;/div&gt;
@@ -156,14 +179,14 @@
 <header><span class="sg-eyebrow">Content</span><h2>SectionHeading</h2></header>
 <div class="sg-preview" data-width="960" data-height="200"><iframe src="previews/SectionHeading.html" title="SectionHeading preview" width="960" height="200" loading="lazy"></iframe></div>
 <div class="sg-preview-bar"><span>Live preview, 960px layout, follows the theme switch.</span><a class="sg-open" href="previews/SectionHeading.html" target="_blank" rel="noopener">Open in a new tab</a></div>
-<div class="sg-prose"><p>Every section opens the same way: a script lead-in in brick, the uppercase heading, a short black rule, and an optional one-line intro. The pattern is the logo's: script over bold caps.</p>
+<div class="sg-prose"><p>Every section opens the same way: a script lead-in in brick, the uppercase heading, a short thick-thin rule, and an optional one-line intro. The pattern is the logo's: script over bold caps.</p>
 <pre><code class="language-html">&lt;div class=&quot;vwg-section-heading&quot;&gt;
   &lt;span class=&quot;vwg-script&quot; aria-hidden=&quot;true&quot;&gt;shop online&lt;/span&gt;
   &lt;h2 id=&quot;shop&quot;&gt;Bags of vintage and new stock&lt;/h2&gt;
   &lt;div class=&quot;vwg-rule&quot; aria-hidden=&quot;true&quot;&gt;&lt;/div&gt;
   &lt;p&gt;Six bags, packed by hand in Glasgow. UK delivery only.&lt;/p&gt;
 &lt;/div&gt;</code></pre>
-<ul><li>The lead-in is one to three lowercase words and is decorative (<code>aria-hidden</code>); the <code>h2</code> carries the meaning.</li><li>On <code>band</code> the rule and intro switch to <code>on-band</code> and <code>on-band-muted</code> by themselves.</li><li>From JavaScript: <code>VWG.SectionHeading({ lead, title, intro })</code>.</li></ul></div>
+<ul><li>The lead-in is one to three lowercase words and is decorative (<code>aria-hidden</code>); the <code>h2</code> carries the meaning.</li><li>The rule is 3px over 1px, 48px wide, like a line in a ledger; it is <code>vwg-rule</code> and needs no content.</li><li>On <code>band</code> the rule and intro switch to <code>on-band</code> and <code>on-band-muted</code> by themselves.</li><li>From JavaScript: <code>VWG.SectionHeading({ lead, title, intro })</code>.</li></ul></div>
 <details><summary>Preview markup</summary><pre><code class="language-html">&lt;div style=&quot;padding: var(--space-6)&quot;&gt;
   &lt;div class=&quot;vwg-section-heading&quot;&gt;
     &lt;span class=&quot;vwg-script&quot; aria-hidden=&quot;true&quot;&gt;shop online&lt;/span&gt;
@@ -254,7 +277,7 @@
 <div class="sg-preview-bar"><span>Live preview, 1100px layout, follows the theme switch.</span><a class="sg-open" href="previews/Hero.html" target="_blank" rel="noopener">Open in a new tab</a></div>
 <div class="sg-prose"><p>The homepage opens on the façade: the photo under the flat <code>overlay</code>, a script line, the name in the <code>hero</code> style, one sentence, and two buttons. The text sits at the bottom left, on the ground, like the sign on the panel.</p>
 <pre><code class="language-html">&lt;section class=&quot;vwg-hero&quot;&gt;
-  &lt;img class=&quot;vwg-hero-media&quot; src=&quot;/images/warehouse-exterior.jpg&quot; alt=&quot;&quot;&gt;
+  &lt;img class=&quot;vwg-hero-media vwg-photo-aged&quot; src=&quot;/images/warehouse-exterior.jpg&quot; alt=&quot;&quot;&gt;
   &lt;div class=&quot;vwg-hero-overlay&quot; aria-hidden=&quot;true&quot;&gt;&lt;/div&gt;
   &lt;div class=&quot;vwg-container vwg-hero-inner&quot;&gt;
     &lt;span class=&quot;vwg-script&quot; aria-hidden=&quot;true&quot;&gt;outlets, new &amp;amp; secondhand&lt;/span&gt;
@@ -266,9 +289,9 @@
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/section&gt;</code></pre>
-<ul><li>The photo is decorative (<code>alt=&quot;&quot;</code>); the headline is the page's <code>h1</code>.</li><li>Keep the overlay flat and at full strength: the text must read on any photo in both themes.</li><li>Buttons on the hero are <code>inverse</code> and <code>ghost</code>, never primary.</li><li>Under 600px the type steps down to 40px and the top padding to <code>space-16</code>.</li></ul></div>
+<ul><li>The photo is decorative (<code>alt=&quot;&quot;</code>); the headline is the page's <code>h1</code>.</li><li><code>vwg-photo-aged</code> warms the façade a little. The <code>Strip</code> runs directly under the hero on the homepage.</li><li>Keep the overlay flat and at full strength: the text must read on any photo in both themes.</li><li>Buttons on the hero are <code>inverse</code> and <code>ghost</code>, never primary.</li><li>Under 600px the type steps down to 40px and the top padding to <code>space-16</code>.</li></ul></div>
 <details><summary>Preview markup</summary><pre><code class="language-html">&lt;section class=&quot;vwg-hero&quot;&gt;
-  &lt;img class=&quot;vwg-hero-media&quot; src=&quot;dist/images/warehouse-exterior.jpg&quot; alt=&quot;&quot;&gt;
+  &lt;img class=&quot;vwg-hero-media vwg-photo-aged&quot; src=&quot;dist/images/warehouse-exterior.jpg&quot; alt=&quot;&quot;&gt;
   &lt;div class=&quot;vwg-hero-overlay&quot; aria-hidden=&quot;true&quot;&gt;&lt;/div&gt;
   &lt;div class=&quot;vwg-container vwg-hero-inner&quot;&gt;
     &lt;span class=&quot;vwg-script&quot; aria-hidden=&quot;true&quot;&gt;outlets, new &amp;amp; secondhand&lt;/span&gt;
@@ -282,6 +305,28 @@
 &lt;/section&gt;</code></pre></details>
 </section>
 
+<section class="sg-component" id="strip">
+<header><span class="sg-eyebrow">Layout</span><h2>Strip</h2></header>
+<div class="sg-preview" data-width="1100" data-height="64"><iframe src="previews/Strip.html" title="Strip preview" width="1100" height="64" loading="lazy"></iframe></div>
+<div class="sg-preview-bar"><span>Live preview, 1100px layout, follows the theme switch.</span><a class="sg-open" href="previews/Strip.html" target="_blank" rel="noopener">Open in a new tab</a></div>
+<div class="sg-prose"><p>A brick band of uppercase words with discs between them, like the lettering on a shop awning. It runs under the hero on the homepage, and may run above the footer on other pages; nowhere else.</p>
+<pre><code class="language-html">&lt;ul class=&quot;vwg-strip&quot;&gt;
+  &lt;li&gt;Vintage&lt;/li&gt;
+  &lt;li&gt;New&lt;/li&gt;
+  &lt;li&gt;Sold by the bag&lt;/li&gt;
+  &lt;li&gt;UK delivery only&lt;/li&gt;
+  &lt;li&gt;Glasgow&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+<ul><li>Five words or short phrases at most, in <code>on-brick</code> on <code>brick</code>; the discs are the logo's disc, small.</li><li>It is static. No scrolling marquee, in either theme.</li><li>Wraps to two lines on phones; the discs come with the items.</li><li>The strip is the one place brick is used as a full-width fill.</li></ul></div>
+<details><summary>Preview markup</summary><pre><code class="language-html">&lt;ul class=&quot;vwg-strip&quot;&gt;
+  &lt;li&gt;Vintage&lt;/li&gt;
+  &lt;li&gt;New&lt;/li&gt;
+  &lt;li&gt;Sold by the bag&lt;/li&gt;
+  &lt;li&gt;UK delivery only&lt;/li&gt;
+  &lt;li&gt;Glasgow&lt;/li&gt;
+&lt;/ul&gt;</code></pre></details>
+</section>
+
 <section class="sg-component" id="openinghours">
 <header><span class="sg-eyebrow">Find us</span><h2>OpeningHours</h2></header>
 <div class="sg-preview" data-width="1100" data-height="320"><iframe src="previews/OpeningHours.html" title="OpeningHours preview" width="1100" height="320" loading="lazy"></iframe></div>
@@ -291,8 +336,8 @@
   &lt;div&gt;
     &lt;span class=&quot;vwg-script&quot; aria-hidden=&quot;true&quot;&gt;find us&lt;/span&gt;
     &lt;h2 id=&quot;find-us&quot;&gt;Vintage Warehouse Glasgow&lt;/h2&gt;
-    &lt;address&gt;Street address&lt;br&gt;Glasgow G0 0AA&lt;/address&gt;
-    &lt;a class=&quot;vwg-btn vwg-btn-outline&quot; href=&quot;https://maps.google.com/?q=...&quot;&gt;Get directions&lt;/a&gt;
+    &lt;address&gt;Bay E, Barclay Curle Complex&lt;br&gt;South Street, Glasgow G14&amp;nbsp;0BX&lt;/address&gt;
+    &lt;a class=&quot;vwg-btn vwg-btn-outline&quot; href=&quot;https://www.google.com/maps/search/?api=1&amp;query=Barclay+Curle+Complex%2C+South+Street%2C+Glasgow+G14+0BX&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Get directions&lt;/a&gt;
   &lt;/div&gt;
   &lt;div&gt;
     &lt;h3&gt;Opening hours&lt;/h3&gt;
@@ -303,14 +348,14 @@
     &lt;/table&gt;
   &lt;/div&gt;
 &lt;/section&gt;</code></pre>
-<ul><li>Hours as the client gave them: Monday to Friday 10am–5pm, Saturday 10am–3pm. Sunday closed is assumed; confirm it.</li><li>Times use an en dash and no spaces; &quot;Closed&quot; is <code>ink-muted</code>.</li><li>The map is a plain link out (&quot;Get directions&quot;); embed the map beside this block on the Find us page only.</li><li>The street address is still to come; do not publish the block without it.</li></ul></div>
+<ul><li>The address, as the client gave it on 28 October 2026: Bay E, Barclay Curle Complex, South Street, Glasgow G14 0BX. Two lines, in that order, everywhere it appears.</li><li>Hours as the client gave them: Monday to Friday 10am–5pm, Saturday 10am–3pm, Sunday closed for now. Keep the Sunday row; it may open later.</li><li>Times use an en dash and no spaces; &quot;Closed&quot; is <code>ink-muted</code>.</li><li>&quot;Get directions&quot; opens Google Maps in a new tab with the address as the query; embed the map beside this block on the Find us page only.</li></ul></div>
 <details><summary>Preview markup</summary><pre><code class="language-html">&lt;div style=&quot;padding: var(--space-6)&quot;&gt;
 &lt;section class=&quot;vwg-hours&quot; aria-labelledby=&quot;find-us&quot;&gt;
   &lt;div&gt;
     &lt;span class=&quot;vwg-script&quot; aria-hidden=&quot;true&quot;&gt;find us&lt;/span&gt;
     &lt;h2 id=&quot;find-us&quot;&gt;Vintage Warehouse Glasgow&lt;/h2&gt;
-    &lt;address&gt;Street address to be confirmed&lt;br&gt;Glasgow, Scotland&lt;/address&gt;
-    &lt;a class=&quot;vwg-btn vwg-btn-outline&quot; href=&quot;#&quot;&gt;Get directions&lt;/a&gt;
+    &lt;address&gt;Bay E, Barclay Curle Complex&lt;br&gt;South Street, Glasgow G14&amp;nbsp;0BX&lt;/address&gt;
+    &lt;a class=&quot;vwg-btn vwg-btn-outline&quot; href=&quot;https://www.google.com/maps/search/?api=1&amp;query=Barclay+Curle+Complex%2C+South+Street%2C+Glasgow+G14+0BX&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Get directions&lt;/a&gt;
   &lt;/div&gt;
   &lt;div&gt;
     &lt;h3&gt;Opening hours&lt;/h3&gt;
@@ -326,9 +371,9 @@
 
 <section class="sg-component" id="sitefooter">
 <header><span class="sg-eyebrow">Layout</span><h2>SiteFooter</h2></header>
-<div class="sg-preview" data-width="1100" data-height="400"><iframe src="previews/SiteFooter.html" title="SiteFooter preview" width="1100" height="400" loading="lazy"></iframe></div>
+<div class="sg-preview" data-width="1100" data-height="420"><iframe src="previews/SiteFooter.html" title="SiteFooter preview" width="1100" height="420" loading="lazy"></iframe></div>
 <div class="sg-preview-bar"><span>Live preview, 1100px layout, follows the theme switch.</span><a class="sg-open" href="previews/SiteFooter.html" target="_blank" rel="noopener">Open in a new tab</a></div>
-<div class="sg-prose"><p>The black band at the foot of every page: the white logo and one line, then Shop, Visit (the hours) and Follow columns, and a bottom row with the copyright and &quot;UK delivery only&quot;.</p>
+<div class="sg-prose"><p>The black band at the foot of every page: the white logo and one line, then Shop, Visit (the address and hours) and Follow columns, and a bottom row with the copyright and &quot;UK delivery only&quot;.</p>
 <pre><code class="language-html">&lt;footer class=&quot;vwg-footer&quot;&gt;
   &lt;div class=&quot;vwg-container vwg-footer-inner&quot;&gt;
     &lt;div class=&quot;vwg-footer-brand&quot;&gt;
@@ -344,7 +389,7 @@
     &lt;span&gt;UK delivery only · &lt;a href=&quot;/privacy&quot;&gt;Privacy&lt;/a&gt; · &lt;a href=&quot;/terms&quot;&gt;Terms&lt;/a&gt;&lt;/span&gt;
   &lt;/div&gt;
 &lt;/footer&gt;</code></pre>
-<ul><li>Always <code>logo-white.png</code> here, in both themes.</li><li>Follow links to the Instagram and TikTok pages open in a new tab; text links are fine until the official glyphs are added.</li><li>Four columns, two under 760px, one under 480px.</li><li>The trading name only; the company name belongs on invoices.</li></ul></div>
+<ul><li>Always <code>logo-white.png</code> here, in both themes.</li><li>Follow links to the Instagram and TikTok pages open in a new tab; text links are fine until the official glyphs are added.</li><li>Four columns, two under 760px, one under 480px.</li><li>Visit: the address on two lines (Bay E, Barclay Curle Complex / South Street, Glasgow G14 0BX), the hours on three, then the Find us link. The postcode takes a non-breaking space so it never splits.</li><li>The trading name only; the company name belongs on invoices.</li></ul></div>
 <details><summary>Preview markup</summary><pre><code class="language-html">&lt;footer class=&quot;vwg-footer&quot;&gt;
   &lt;div class=&quot;vwg-container vwg-footer-inner&quot;&gt;
     &lt;div class=&quot;vwg-footer-brand&quot;&gt;
@@ -362,6 +407,7 @@
     &lt;div&gt;
       &lt;h4&gt;Visit&lt;/h4&gt;
       &lt;ul&gt;
+        &lt;li&gt;Bay E, Barclay Curle Complex&lt;br&gt;South Street, Glasgow G14&amp;nbsp;0BX&lt;/li&gt;
         &lt;li&gt;Mon–Fri 10am–5pm&lt;/li&gt;
         &lt;li&gt;Sat 10am–3pm&lt;/li&gt;
         &lt;li&gt;Sun closed&lt;/li&gt;
@@ -386,10 +432,10 @@
 
 <section class="sg-component" id="invoice">
 <header><span class="sg-eyebrow">Documents</span><h2>Invoice</h2></header>
-<div class="sg-preview" data-width="960" data-height="760"><iframe src="previews/Invoice.html" title="Invoice preview" width="960" height="760" loading="lazy"></iframe></div>
+<div class="sg-preview" data-width="960" data-height="800"><iframe src="previews/Invoice.html" title="Invoice preview" width="960" height="800" loading="lazy"></iframe></div>
 <div class="sg-preview-bar"><span>Live preview, 960px layout, follows the theme switch.</span><a class="sg-open" href="previews/Invoice.html" target="_blank" rel="noopener">Open in a new tab</a></div>
-<div class="sg-prose"><p>The invoice the shop generates for every online order, so nobody writes one by hand. Titled &quot;Online order invoice&quot;, numbered in sequence with four digits, on a <code>surface-raised</code> sheet with the logo top left.</p>
-<ul><li>Number: <code>VWG.invoiceNumber(n)</code> gives &quot;0001&quot;; the counter only ever goes up, and the number appears in the order email subject too.</li><li>Head: the black disc at 72px, then the title, number, date and a status badge (<code>stock</code> for Paid).</li><li>Parties: From is Vintage Warehouse Glasgow with the company name, R and BM Logistics Limited, under it; To is the customer and the UK delivery address.</li><li>Lines: one per bag with its weight, quantity and price; delivery as its own line. Totals right-aligned with tabular numerals; the grand total in the <code>price</code> style above a 3px rule.</li><li>Foot: payment method and date, and a one-line thank you. Add the VAT number and a VAT line only if the company is VAT registered.</li><li>The same markup prints to PDF for the order email; keep it to one page.</li><li>Company address and registration number are still to come; the preview shows the slots.</li></ul></div>
+<div class="sg-prose"><p>The invoice the shop generates for every online order, so nobody writes one by hand. Titled &quot;Online order invoice&quot;, numbered in sequence with four digits, on a <code>surface-raised</code> sheet with the logo top left. The company is VAT registered, so this is a VAT invoice.</p>
+<ul><li>Number: <code>VWG.invoiceNumber(n)</code> gives &quot;0001&quot;; the counter only ever goes up, and the number appears in the order email subject too.</li><li>Head: the black disc at 72px, then the title, number, date and the Paid stamp (<code>vwg-stamp-stock</code>), over the thick-thin rule.</li><li>Parties: From is Vintage Warehouse Glasgow, then the company name R and BM Logistics Limited, the registered office (Bay E, Barclay Curle Complex, South Street, Glasgow G14 0BX), the company number SC769949 and the VAT number. To is the customer and the UK delivery address.</li><li>Lines: one per bag with its weight, quantity and price, all VAT inclusive; delivery as its own line. Totals right-aligned with tabular numerals: subtotal, delivery, the grand total in the <code>price</code> style over the thick-thin rule, then &quot;Includes VAT at 20%&quot; in <code>vwg-vat</code>.</li><li>Foot: payment method and date, &quot;All prices include VAT&quot;, and a one-line thank you.</li><li>The same markup prints to PDF for the order email; keep it to one page.</li><li>The VAT number is still to come from the client; the preview shows the slot. Nothing else on the sheet is a placeholder except the customer and the lines.</li></ul></div>
 <details><summary>Preview markup</summary><pre><code class="language-html">&lt;div style=&quot;padding: var(--space-6)&quot;&gt;
 &lt;article class=&quot;vwg-invoice&quot; aria-label=&quot;Online order invoice 0001&quot;&gt;
   &lt;div class=&quot;vwg-invoice-head&quot;&gt;
@@ -398,14 +444,14 @@
     &lt;/div&gt;
     &lt;div class=&quot;vwg-invoice-title&quot;&gt;
       &lt;h1&gt;Online order invoice&lt;/h1&gt;
-      &lt;p&gt;No. 0001 · 27 October 2026&lt;/p&gt;
-      &lt;span class=&quot;vwg-badge vwg-badge-stock&quot;&gt;Paid&lt;/span&gt;
+      &lt;p&gt;No. 0001 · 28 October 2026&lt;/p&gt;
+      &lt;span class=&quot;vwg-stamp vwg-stamp-stock&quot;&gt;Paid&lt;/span&gt;
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;vwg-invoice-parties&quot;&gt;
     &lt;div&gt;
       &lt;h4&gt;From&lt;/h4&gt;
-      &lt;p&gt;&lt;strong&gt;Vintage Warehouse Glasgow&lt;/strong&gt;&lt;br&gt;R and BM Logistics Limited&lt;br&gt;Company address to be confirmed&lt;br&gt;Glasgow, Scotland&lt;/p&gt;
+      &lt;p&gt;&lt;strong&gt;Vintage Warehouse Glasgow&lt;/strong&gt;&lt;br&gt;R and BM Logistics Limited&lt;br&gt;Bay E, Barclay Curle Complex&lt;br&gt;South Street, Glasgow G14&amp;nbsp;0BX&lt;br&gt;Company no. SC769949 · VAT no. to be confirmed&lt;/p&gt;
     &lt;/div&gt;
     &lt;div&gt;
       &lt;h4&gt;To&lt;/h4&gt;
@@ -426,14 +472,15 @@
     &lt;div&gt;&lt;span&gt;Subtotal&lt;/span&gt;&lt;span&gt;£155.00&lt;/span&gt;&lt;/div&gt;
     &lt;div&gt;&lt;span&gt;Delivery&lt;/span&gt;&lt;span&gt;£12.00&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;vwg-grand&quot;&gt;&lt;span&gt;Total paid&lt;/span&gt;&lt;span&gt;£167.00&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;vwg-vat&quot;&gt;&lt;span&gt;Includes VAT at 20%&lt;/span&gt;&lt;span&gt;£27.83&lt;/span&gt;&lt;/div&gt;
   &lt;/div&gt;
-  &lt;p class=&quot;vwg-invoice-foot&quot;&gt;Paid by card on 27 October 2026. Thank you for your order. Vintage Warehouse Glasgow · UK delivery only.&lt;/p&gt;
+  &lt;p class=&quot;vwg-invoice-foot&quot;&gt;Paid by card on 28 October 2026. All prices include VAT. Thank you for your order. Vintage Warehouse Glasgow · UK delivery only.&lt;/p&gt;
 &lt;/article&gt;
 &lt;/div&gt;</code></pre></details>
 </section>
 </main>
 </div>
-<footer class="sg-foot">Vintage Warehouse Glasgow design system · built 2026-10-27 from <code>project/</code> · <a href="https://github.com/alltimehasan/vintagewarehouseglasgow-design-system">source</a></footer>
+<footer class="sg-foot">Vintage Warehouse Glasgow design system · built 2026-10-28 from <code>project/</code> · <a href="https://github.com/alltimehasan/vintagewarehouseglasgow-design-system">source</a></footer>
 <script src="site.js"></script>
 </body>
 </html>
